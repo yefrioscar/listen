@@ -1,32 +1,30 @@
-<div class="line"></div>
-<span>O crea una cuenta</span>
-
 <form action="" class="login">
+
     <div class="box-form">
-        <div class="box-form__input">
-            <input type="text" placeholder="Nombre" />
-            <input type="text" placeholder="Apellido" />
+        <div class="box-form__item">
+            <input class="login-input" type="text" placeholder="Nombre" />
+            <input class="login-input" type="text" placeholder="Apellido" />
         </div>
-        <div class="box-form__input">
-            <input type="text" placeholder="Correo electrónico" />
+        <div class="box-form__item">
+            <input class="login-input" type="text" placeholder="Correo electrónico" />
         </div>
-        <div class="box-form__input">
-            <input type="password" placeholder="Contraseña" />
+        <div class="box-form__item">
+            <input class="login-input" type="password" placeholder="Contraseña" />
         </div>
-        <div class="box-form__input">
-            <input type="text" placeholder="Dni" />
-            <input type="datetime" placeholder="Fecha de nacimiento" />
+        <div class="box-form__item">
+            <input class="login-input" type="text" placeholder="Dni" />
+            <input class="login-input" type="text" placeholder="Fecha de nacimiento" />
         </div>
-        <div class="box-form__checkbox">
-            <input type="checkbox" />
-            <span>Acepto los terminos de servicio y la política de privacidad de Listen</span>
+        <div class="box-form__item terms">
+            <input id="login-checkbox" class="login-checkbox" type="checkbox" />
+            <label for="login-checkbox" class="terms-copy">Acepto los terminos de servicio y la política de privacidad de Listen</label>
         </div>
     </div>
 
     <div class="form-button">
-        <input type="submit" value="Enviar">
+        <input class="login-button" type="submit" value="Enviar">
     </div>
-
-
 </form>
+
+<p class="line">O crea una cuenta</p>
 
