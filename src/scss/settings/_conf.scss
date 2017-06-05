@@ -5,6 +5,9 @@ $padding-top-bottom:30px;
 
 $box-shadow1:0 10px 0px 20px rgba(0,0,0,.16);
 
+*{
+  box-sizing: border-box;
+}
 
 img {
     display: inline-block;
