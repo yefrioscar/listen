@@ -9,3 +9,12 @@ $box-shadow1:0 10px 0px 20px rgba(0,0,0,.16);
 img {
     display: inline-block;
 }
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: map-get($colors , second-color-2 );
+    font-family: $family;
+}
