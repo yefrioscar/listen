@@ -2,19 +2,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {RouterModule, Routes} from'@angular/router';
 
-import { LoginComponent } from './login/login.component';
-import { SocialComponent } from './login-social/social.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SocialComponent } from './components/login-social/social.component';
 import { AppComponent } from './app.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { HeaderSignupComponent } from './components/header-signup/header-signup.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { HeaderSigninComponent } from './components/header-signin/header-signin.component';
+
+
+const appRoutes: Routes = [
+  {path:'', component: LandingComponent},
+  {path:'signup', component: SignupComponent},
+  {path:'signin', component: SigninComponent}
+]
 
 @NgModule({
   declarations: [
-     AppComponent, LoginComponent, SocialComponent
+     AppComponent, 
+     SignupComponent, 
+     SocialComponent, 
+     LandingComponent, 
+     HeaderSignupComponent, 
+     SigninComponent, HeaderSigninComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [ AppComponent ]

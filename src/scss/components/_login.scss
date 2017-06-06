@@ -15,7 +15,7 @@
 
 
 .box-header {
-    margin-top:.9em;
+    margin-top:2em;
     margin-bottom:3.5em;
     width:450px;
     display: flex;
@@ -45,8 +45,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: map-get($colors, second-color);
+      border-radius: 5px;
       box-shadow: 0px 10px 30px 0px rgba(0,0,0,.16);
+      background: map-get($colors, second-color);
       &__item{
         
         
