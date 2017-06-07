@@ -11,12 +11,14 @@ import { LandingComponent } from './components/landing/landing.component';
 import { HeaderSignupComponent } from './components/header-signup/header-signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { HeaderSigninComponent } from './components/header-signin/header-signin.component';
+import { DniSignupComponent } from './components/dni-signup/dni-signup.component';
 
 
 const appRoutes: Routes = [
   {path:'', component: LandingComponent},
   {path:'signup', component: SignupComponent},
-  {path:'signin', component: SigninComponent}
+  {path:'signin', component: SigninComponent},
+  {path: 'dni-signup', component: DniSignupComponent}
 ]
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
      SocialComponent, 
      LandingComponent, 
      HeaderSignupComponent, 
-     SigninComponent, HeaderSigninComponent
+     SigninComponent, HeaderSigninComponent,
+     DniSignupComponent
   ],
   imports: [
     BrowserModule,
