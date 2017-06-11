@@ -1,0 +1,30 @@
+.signin-form{
+    width: 450px;
+    height: 175px;
+    &__item{
+        &:first-child{
+            margin-top: 30px;
+        }
+    }
+}
+
+
+
+.signin-forgot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    width: 450px;
+    &__cta{
+        display: block;
+        margin-top: 10px;
+        color: map-get($colors , main-color);
+        font-size: 16px;
+        font-weight: $light;
+    }
+}
+
+.signin-button{
+    width: 180px;
+}
