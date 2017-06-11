@@ -5,5 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './signup.component.html'
 })
 export class SignupComponent {
-    title='hola';
+  
+  listarCategrias(){
+
+  }
+
 }
