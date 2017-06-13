@@ -66,6 +66,7 @@
     margin-right: auto;
     margin-left: auto;
     padding-left: 18px;
+    color: map-get($colors,second-color-5);
     
     &::placeholder{
       color: map-get($colors,second-color-4);

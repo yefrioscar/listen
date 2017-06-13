@@ -13,7 +13,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { HeaderSigninComponent } from './components/header-signin/header-signin.component';
 import { DniSignupComponent } from './components/dni-signup/dni-signup.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-
+import { UserService } from './services/user.service';
 
 const appRoutes: Routes = [
   {path:'', component: LandingComponent},
@@ -40,7 +40,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
