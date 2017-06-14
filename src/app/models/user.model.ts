@@ -1,10 +1,9 @@
-export class User {
-    private dni: number;
-	private email: string;
-	private password: string;
-	private apellido: string;
-	private nombre: string;
-	private fecNac: Date;
-
-    
+export interface User {
+    dni: number;
+	terms:  boolean;
+	email: string;
+	password: string;
+	lastname: string;
+	name: string;
+	fecNac: Date;
 }

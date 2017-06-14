@@ -1,35 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { User } from '../models/user.model';
 
 @Injectable()
-export class UserService {
+export class AuthoService {
 
-    urlAPI = "http://localhost:3002/api";
+  urlAPI = "http://localhost:3002/api";
 
     constructor(private http: Http){}
 
-
-    signUp(dni:number, email:string, password:string, apellido:string, nombre:string, fecha:Date): Promise<Any[]>{
+    
+    signUp(dni:string,name:string,lastname:string,email:string,password:string, fechanacimiento:string){
         return this.http
             .post(`${this.urlAPI}/user`,{
-                'email': email,
-                'password': password,
-                'dni': dni,
-                'apellido': apellido,
-                'genero': 'M',
-                'tipoUsuario': 'Admin',
-                'fecNac': fecha,
-                'nombre': nombre
+              'email': email,
+              'password':password,
+              'dni': dni,
+              'apellido':lastname,
+              'genero': 'M',
+              'tipoUsuario': 'admin',
+              'fecNac': fechanacimiento,
+              'nombre': name
             })
-            .toPromise()
-            .then(this.extractData)
-            .catch(this.handleError)
+            .map(response => this.extractData(response))
+            .catch(error => this.handleError(error));
     }
-
 
     private extractData(res: Response) {
         let body = res.json();
@@ -41,7 +38,6 @@ export class UserService {
             return { };
         }
     }
-
     private handleError(error: Response | any){
         let errMsg:string;
         if(error instanceof Response){
@@ -55,5 +51,4 @@ export class UserService {
         console.error(errMsg);
         return Observable.throw(errMsg);
     }
-
 }

@@ -1,0 +1,39 @@
+<header-signup></header-signup>
+<social></social>
+
+<p class="line">O crea una cuenta</p>
+
+<form  class="login" (submit)="signUp()">
+
+    <div class="box-form">
+        <div class="box-form__item">
+
+
+            <input class="login-input name" [(ngModel)]="name" name="name" type="text" placeholder="Nombre" />
+            <input class="login-input name" [(ngModel)]="lastname" name="lastname" type="text" placeholder="Apellido" />
+        </div>
+        
+        <div class="box-form__item">
+            <input class="login-input" [(ngModel)]="email"  name="email" type="text" placeholder="Correo electrónico" />
+        </div>
+
+        <div class="box-form__item">
+            <input class="login-input" [(ngModel)]="password" name="password" type="password" placeholder="Contraseña" />
+        </div>
+        <div class="box-form__item">
+            <input class="login-input" [(ngModel)]="fecNac" name="fecNac" type="Date" placeholder="Fecha de nacimiento" />
+        </div>
+
+
+        <div class="box-form__item terms">
+            <input id="login-checkbox" [(ngModel)]="terms" name="terms" class="login-checkbox" type="checkbox" />
+            <label for="login-checkbox" class="terms-copy">Acepto los terminos de servicio y la política de privacidad de Listen</label>
+        </div>
+    </div>
+
+    <div class="form-button">
+        <input class="login-button" type="submit" value="Registrarse">
+    </div>
+</form>
+
+

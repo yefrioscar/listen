@@ -4,19 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from'@angular/router';
 
-import { SignupComponent } from './components/signup/signup.component';
-import { SocialComponent } from './components/login-social/social.component';
+import { SocialComponent } from './components/authentication/login-social/social.component';
+import { SignupComponent } from './components/authentication/signup/signup.component';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { HeaderSignupComponent } from './components/header-signup/header-signup.component';
-import { SigninComponent } from './components/signin/signin.component';
-import { HeaderSigninComponent } from './components/header-signin/header-signin.component';
-import { DniSignupComponent } from './components/dni-signup/dni-signup.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-import { UserService } from './services/user.service';
+import { HeaderSignupComponent } from './components/authentication/header-signup/header-signup.component';
+import { SigninComponent } from './components/authentication/signin/signin.component';
+import { HeaderSigninComponent } from './components/authentication/header-signin/header-signin.component';
+import { DniSignupComponent } from './components/authentication/dni-signup/dni-signup.component';
+import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
+import { AuthoService } from './services/autho.service';
+import { NavBarComponent } from './components/app/nav-bar/nav-bar.component';
+import { HomeComponent } from './components/app/home/home.component';
 
 const appRoutes: Routes = [
   {path:'', component: LandingComponent},
+  {path:'home', component: HomeComponent},
   {path:'signup', component: SignupComponent},
   {path:'signin', component: SigninComponent},
   {path: 'dni-signup', component: DniSignupComponent},
@@ -32,7 +35,9 @@ const appRoutes: Routes = [
      HeaderSignupComponent, 
      SigninComponent, HeaderSigninComponent,
      DniSignupComponent,
-     ResetPasswordComponent
+     ResetPasswordComponent,
+     NavBarComponent,
+     HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService],
+  providers: [AuthoService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
