@@ -1,3 +1,31 @@
-<p>
-  nav-bar works!
-</p>
+<section class="main-nav">
+  <div class="logo-main">
+    <img class="logo-main__img" src="assets/listen-blue-logo.svg" alt="">
+  </div>
+  
+  <nav class="nav-main">
+    <div class="nav-main__item">
+      <a class="nav-main__link clicked-link" [routerLink]="[ '/path' ]" routerLinkActive="active">Inicio</a>
+    </div>
+    <div class="nav-main__item">
+      <a class="nav-main__link" [routerLink]="[ '/path' ]">Mis ideas</a>
+    </div>
+    <div class="nav-main__item">
+      <a class="nav-main__link" [routerLink]="[ '/path' ]">Explorar</a>
+    </div>
+    <div class="nav-main__item">
+      <a class="nav-main__link" [routerLink]="[ '/path' ]">Ideas aprobadas</a>
+    </div>
+    <div class="nav-main__item">
+      <a class="nav-main__link" [routerLink]="[ '/path' ]">Colaborar</a>
+    </div>
+  </nav>
+
+  <footer class="footer-main">
+    <ul class="footer-main__list">
+      <li class="footer-main__list_item">Blog</li>
+      <li class="footer-main__list_item">Terminos</li>
+      <li class="footer-main__list_item">Privacidad</li>
+    </ul>
+  </footer>
+</section>

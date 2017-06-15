@@ -16,14 +16,16 @@ import { ResetPasswordComponent } from './components/authentication/reset-passwo
 import { AuthoService } from './services/autho.service';
 import { NavBarComponent } from './components/app/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/app/home/home.component';
+import { HeaderComponent } from './components/app/header/header.component';
+import { IdeaItemComponent } from './components/app/idea-item/idea-item.component';
 
 const appRoutes: Routes = [
   {path:'', component: LandingComponent},
   {path:'home', component: HomeComponent},
   {path:'signup', component: SignupComponent},
   {path:'signin', component: SigninComponent},
-  {path: 'dni-signup', component: DniSignupComponent},
-  {path: 'reset-password', component: ResetPasswordComponent}
+  {path: 'dnisignup', component: DniSignupComponent},
+  {path: 'resetpassword', component: ResetPasswordComponent}
 ]
 
 @NgModule({
@@ -37,7 +39,9 @@ const appRoutes: Routes = [
      DniSignupComponent,
      ResetPasswordComponent,
      NavBarComponent,
-     HomeComponent
+     HomeComponent,
+     HeaderComponent,
+     IdeaItemComponent
   ],
   imports: [
     BrowserModule,

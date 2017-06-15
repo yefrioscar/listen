@@ -3,20 +3,20 @@
 
 <p class="line">o</p>
 
-<form action="" class="login">
+<form (submit)="signIn()" class="login">
 
     <div class="box-form signin-form">
         <div class="box-form__item signin-form__item">
-            <input class="login-input" type="text" placeholder="Correo electrónico" />
+            <input class="login-input" [(ngModel)]="email" name="email" type="text" placeholder="Correo electrónico" />
         </div>
         <div class="box-form__item signin-form__item">
-            <input class="login-input" type="password" placeholder="Contraseña" />
+            <input class="login-input" [(ngModel)]="password" name="password" type="password" placeholder="Contraseña" />
         </div>
     </div>
 
     <div class="form-button signin-forgot">
         <input class="login-button signin-button" type="submit" value="Iniciar sesión">
-        <a href="#" class="signin-forgot__cta">¿Olvidaste tu contraseña?</a>
+        <a routerLink= '/resetpassword' class="signin-forgot__cta">¿Olvidaste tu contraseña?</a>
     </div>
 
 </form>
