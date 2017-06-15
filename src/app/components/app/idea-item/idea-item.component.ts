@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, Output, OnInit } from '@angular/core';
 import { AuthoService } from '../../../services/autho.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { Idea } from '../../../models/idea.model';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html'
-})
-export class HomeComponent implements OnInit {
 
-  private ideas: Idea[] = [];
+@Component({
+  selector: 'idea-item',
+  templateUrl: './idea-item.component.html'
+})
+export class IdeaItemComponent implements OnInit {
+
+
+    private ideas: Idea[] = [];
     
     constructor(private service: AuthoService,
               private router: Router ) { }
@@ -26,5 +28,10 @@ export class HomeComponent implements OnInit {
       )
 
   }
+
+
+  
+
+
 
 }

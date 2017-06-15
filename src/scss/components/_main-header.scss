@@ -1,0 +1,57 @@
+.header_main{
+    width: 100%;
+    height:100px;
+    &__item{
+        height:50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        &--title{
+            margin-left: 50px;
+            
+        }
+
+        &--user{
+            display: flex;
+        }
+
+    }
+
+    .user {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cta {
+       margin-bottom: 1em;
+    }
+}
+
+.crearIdea {
+    height:80%;
+    align-self: flex-end;
+}
+
+.icon-box{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    .girl {
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+    }
+    .paper_plane {
+        width:29px;
+        height:19px;
+    }
+    .search {
+        width:20px;
+        height:21px;
+    }
+
+}

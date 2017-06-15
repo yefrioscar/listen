@@ -4,6 +4,7 @@ import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
 
+
 @Injectable()
 export class AuthoService {
 
@@ -25,6 +26,32 @@ export class AuthoService {
               'nombre': name
             })
             .map(response => this.extractData(response))
+            .catch(error => this.handleError(error));
+    }
+
+    signIn(email:string,password:string){
+        return this.http
+            .post(`${this.urlAPI}/login`,{
+              'email': email,
+              'password': password
+            })
+            .map(response => this.extractData(response))
+            .catch(error => this.handleError(error));
+    }
+
+    resetpassword(email:string){
+        return this.http
+            .post(`${this.urlAPI}/senResetPassword`,{
+              'email': email
+            })
+            .map(response => this.extractData(response))
+            .catch(error => this.handleError(error));
+    }
+
+    getIdeas(){
+        return this.http
+            .get(`${this.urlAPI}/idea`)
+            .map(response => response.json())
             .catch(error => this.handleError(error));
     }
 
