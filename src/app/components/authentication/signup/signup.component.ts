@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Directive } from '@angular/core';
 import { AuthoService } from '../../../services/autho.service';
 import { User } from '../../../models/user.model';
-import { Router,
-         NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
+import { AbstractControl,FormArray, FormControl, FormBuilder, FormGroup, Validators, NG_VALIDATORS } from '@angular/forms';
 
 @Component({
   selector: 'signup',
