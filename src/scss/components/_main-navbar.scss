@@ -1,7 +1,9 @@
 .main-nav {
+    position: fixed;
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: 240px;
     background-color: map-get($colors, second-color);
 }
 
@@ -46,7 +48,7 @@
 .footer-main{
     flex-grow: 1;
     margin-left: 2.5em;
-    margin-right: 2.5em;
+    margin-right: 3em;
     display: flex;
 
     &__list{
@@ -54,11 +56,11 @@
         margin-bottom: 1em;
         align-self: flex-end;
         display: flex;
-        justify-content: space-between;
         list-style: none;
         &_item{
             cursor: pointer;
             font-size: .7em;
+            margin-right: 1em;
             color: map-get($colors, main-color-light);
             &:hover{
                 color: map-get($colors, main-color);

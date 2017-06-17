@@ -9,22 +9,30 @@ import { Idea } from '../../../models/idea.model';
 })
 export class HomeComponent implements OnInit {
 
-  private ideas: Idea[] = [];
-    
-    constructor(private service: AuthoService,
+  ideas: Idea[] = [];
+
+  
+  constructor(private service: AuthoService,
               private router: Router ) { }
 
-
   ngOnInit() {
-    
+    this.getIdeas();
+  }   
+
+  getIdeas(){
     this.service.getIdeas().subscribe(
         response => {
           this.ideas = response,
+          console.log(response),
           console.log(this.ideas)
-        } ,
+        },
         error => console.log(error)
       )
-
   }
-
+  
+  
 }
+
+
+
+

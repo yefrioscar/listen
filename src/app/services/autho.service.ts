@@ -51,7 +51,7 @@ export class AuthoService {
     getIdeas(){
         return this.http
             .get(`${this.urlAPI}/idea`)
-            .map(response => response.json())
+            .map(response => this.extractData(response))
             .catch(error => this.handleError(error));
     }
 
@@ -62,7 +62,7 @@ export class AuthoService {
             return body.result;
         }
         else{
-            return { };
+            return body.result;
         }
     }
     private handleError(error: Response | any){

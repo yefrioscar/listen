@@ -18,6 +18,7 @@ import { NavBarComponent } from './components/app/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/app/home/home.component';
 import { HeaderComponent } from './components/app/header/header.component';
 import { IdeaItemComponent } from './components/app/idea-item/idea-item.component';
+import { LimitTextPipe } from './pipes/limit-text.pipe';
 
 const appRoutes: Routes = [
   {path:'', component: LandingComponent},
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
      NavBarComponent,
      HomeComponent,
      HeaderComponent,
-     IdeaItemComponent
+     IdeaItemComponent,
+     LimitTextPipe
   ],
   imports: [
     BrowserModule,

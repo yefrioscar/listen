@@ -1,5 +1,142 @@
-.idea-row__profileimage {
-    width: 50px;
-    height:50px;
+.idea-item-1{
+    width: 360px;
+    height: 256px;
+    background-color: map-get($colors,second-color);
+    box-shadow: 10px 20px 40px 0px rgba(0,0,0,.16);
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    &__img {
+        overflow: hidden;
+        width:100%;
+        height:45%;
+        background-color: red;
+        &-item {
+            background-size: cover;
+        }
+    }
+
+    &__content {
+        width:100%;
+        height:55%;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &--title {
+            font-weight: $bold;
+            font-size: 1.1em;
+            color: map-get($colors, second-color-5 );
+
+        }
+
+        &--descripcion {
+            font-weight: $regular;
+            font-size: .9em;
+            color: map-get($colors, second-color-3 );
+        }
+
+        &--actions {
+            
+            display: flex;
+            height:25px;
+            width: 100%;
+            justify-content: space-between;
+
+        }
+    }
+}
+
+
+.likes-action {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        width: 20px;
+        height:20px;
+        margin-right: .25em;
+    }
+
+    &__count {
+        font-size: .9em;
+        font-weight: $light;
+        color: map-get($colors, second-color-4 );
+
+    }
+}
+
+.people-action {
+    display: flex;
+    
+    &__titular {
+        display: flex;
+        align-items: center;
+        margin-right: .3em;
+        padding-right: .3em;
+        border-right: 1px solid map-get($colors, second-color-3);
+
+        &--img {
+            margin-right: .3em;
+            border: 2px solid map-get($colors, second-color-3);
+        }
+
+        &--name {
+            font-size: 15px;
+            font-weight: $light;
+            color:map-get($colors,second-color-5);
+        }
+    }
+
+    &__Contributors {
+        display: flex;
+        margin-left: .7em;
+
+        &--img {
+            display: block;
+            align-items: flex-end;
+            border: 2px solid map-get($colors, second-color-3);
+            @for $i from 1 through 4{
+                &:nth-child(#{$i}){
+                    margin-left: -12px;
+                }
+            } 
+        }
+
+        .more-users {
+            background-color: map-get($colors,second-color-6);
+
+
+            &-link {
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                width: 100%;
+                height:100%;
+                font-weight: $light;
+                font-size: 10px;
+                color:map-get($colors,second-color-5);
+
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.profileimage-idea {
+    width: 30px;
+    height:30px;
     border-radius: 50%;
 }
