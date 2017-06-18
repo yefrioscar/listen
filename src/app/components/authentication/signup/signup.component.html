@@ -23,15 +23,50 @@
             <input #lastnameM="ngModel" class="login-input name" [(ngModel)]="lastname" name="lastname" type="text" placeholder="Apellido" />
         </div>
         
-        <div class="box-form__item">
-            <input class="login-input" [(ngModel)]="email"  name="email" type="text" placeholder="Correo electrónico" />
+        <div class="box-form__item" [ngClass]="{'has-error': emailM.touched && !emailM.valid, 'has-confirm': emailM.valid}">
+            <input class="login-input"
+                    type="email" 
+                    placeholder="Correo electrónico"
+                    required
+                    [(ngModel)]="email" 
+                    name="email"
+                    #emailM="ngModel"  />
+
+            <span class="help-block" *ngIf="emailM.touched && emailM.errors">
+                <span *ngIf="emailM.errors.required">Olvidaste ingresar tu correo.</span>
+                <span *ngIf="emailM.errors.pattern">Ingresar un correo valido.</span>
+            </span>
         </div>
 
-        <div class="box-form__item">
-            <input class="login-input" [(ngModel)]="password" name="password" type="password" placeholder="Contraseña" />
+        <div class="box-form__item" [ngClass]="{'has-error': passM.touched && !passM.valid, 'has-confirm': passM.valid}">
+            <input class="login-input"
+                    type="password" 
+                    placeholder="Contraseña"
+                    required
+                    minlength="8"
+                    [(ngModel)]="password" 
+                    name="password"
+                    #passM="ngModel"  />
+
+                    <span class="help-block" *ngIf="passM.touched && passM.errors">
+                        <span *ngIf="passM.errors.required">Olvidaste ingresar tu contraseña.</span>
+                        <span *ngIf="passM.errors.minlength">Al menos 8 carácteres.</span>
+                        <span *ngIf="passM.errors.pattern">Al menos una mayúscula y número.</span>
+                    </span>
         </div>
-        <div class="box-form__item">
-            <input class="login-input" [(ngModel)]="fecNac" name="fecNac" type="Date" placeholder="Fecha de nacimiento" />
+        <div class="box-form__item" [ngClass]="{'has-error': fecNacM.touched && !fecNacM.valid, 'has-confirm': fecNacM.valid}">
+            <input class="login-input"
+                    type="Date" 
+                    placeholder="Fecha de nacimiento"
+                    required
+                    [(ngModel)]="fecNac" 
+                    name="fecNac"
+                    #fecNacM="ngModel"  />
+
+                    <span class="help-block" *ngIf="fecNacM.touched && fecNacM.errors">
+                        <span *ngIf="fecNacM.errors.required">Olvidaste ingresar tu fecha de nacimiento.</span>
+                        <span *ngIf="fecNacM.errors.pattern">dd/mm/aa.</span>
+                    </span>
         </div>
 
 
@@ -42,8 +77,12 @@
     </div>
 
     <div class="form-button">
-        <input class="login-button" type="submit" value="Registrarse">
+        <input class="login-button" type="submit" value="Registrarse"  (click)="clicked(ngForm)">
     </div>
 </form>
 
+<p>
+    {{userForm.value | json}}
+    {{userForm.control.status}}
+</p>
 
