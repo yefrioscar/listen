@@ -11,8 +11,7 @@ import { AbstractControl, FormArray, FormControl, FormBuilder, FormGroup, Valida
 })
 export class SignupComponent {
 
-
-
+    userForm: FormGroup;
     dni: string;
     terms:  boolean;
     email: string;
@@ -26,7 +25,9 @@ export class SignupComponent {
   constructor(
     private service: AuthoService,
     private router: Router
-  ){}
+  ){
+
+  }
   
   signUp(){
     this.service.signUp(this.dni,this.name,this.lastname,this.email,this.password,this.fecNac).subscribe(
@@ -37,5 +38,18 @@ export class SignupComponent {
       error => console.log(error)
     )
   }
+
+  clicked(userForm: FormGroup){
+    if(userForm.dirty && userForm.valid){
+      console.log('Entro y mando, validado los datos y se registro');
+    } else{
+      console.log('Error');
+      //Aqui haria la accion de mandar el error exacto
+      //Pero como es validacion del template tendria que obtener los valores con formControl
+      //Pero no se puede usar eso cuando usas el [(ngModel)]... aunque todavia no lo pruebo, acabo de encontrar eso en internet
+      //Si fuera reactiveform, esto sería mas fácil pero no se puede usar directivas con [[ngModel]] :vvvv
+    }
+  }
+  
 
 }

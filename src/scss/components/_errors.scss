@@ -1,0 +1,25 @@
+.has-error{
+    color: map-get($colors, error-color );
+    &>input{
+        border-color: map-get($colors, error-color );
+    }
+}
+
+.has-confirm{
+    &>input{
+        border-color: map-get($colors, main-color );
+    }
+}
+
+.help-block{
+    position: absolute;
+    z-index: 500;
+    left:2px;
+    top:47px;
+    font-size: 12px;
+
+    &.lastname{
+        left: 187px;
+        width: 300px;
+    }
+}
