@@ -1,6 +1,6 @@
 export interface Idea {
-		numero :string,
-		beneficios:  string,
+		beneficios :string,
+		categoria:  string,
 		descripcion : string,
 		disposicionesFinales : string,
 		efectos : string,
@@ -8,7 +8,7 @@ export interface Idea {
 		fechaElaboracion : string,
 		formulaLegal : string,
 		motivos : string,
-		titular : string,
-		categoria : string
+		numero : string,
+		titular : string
 }
 

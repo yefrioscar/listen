@@ -29,6 +29,7 @@ export class AuthoService {
             .catch(error => this.handleError(error));
     }
 
+
     signIn(email:string,password:string){
         return this.http
             .post(`${this.urlAPI}/login`,{
@@ -51,20 +52,19 @@ export class AuthoService {
     getIdeas(){
         return this.http
             .get(`${this.urlAPI}/idea`)
-            .map(response => this.extractData(response))
-            .catch(error => this.handleError(error));
+            .map(response => response.json());
     }
 
     private extractData(res: Response) {
         let body = res.json();
-        console.log("body", body);
         if (body.status == 200){
             return body.result;
         }
         else{
-            return body.result;
+            return body;
         }
-    }
+    }  
+
     private handleError(error: Response | any){
         let errMsg:string;
         if(error instanceof Response){

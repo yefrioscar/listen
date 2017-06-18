@@ -10,7 +10,7 @@ import { Idea } from '../../../models/idea.model';
 export class HomeComponent implements OnInit {
 
   ideas: Idea[] = [];
-
+  idea: Idea;
   
   constructor(private service: AuthoService,
               private router: Router ) { }
@@ -22,15 +22,20 @@ export class HomeComponent implements OnInit {
   getIdeas(){
     this.service.getIdeas().subscribe(
         response => {
-          this.ideas = response,
-          console.log(response),
-          console.log(this.ideas)
+          this.idea = response,
+          this.ObjectToArray(this.ideas,this.idea)
         },
         error => console.log(error)
       )
   }
-  
-  
+
+  ObjectToArray(array:Idea[],object:Idea){
+    for(let key in object){
+      if(object.hasOwnProperty(key)){
+        array.push(object[key]);
+      }
+    }
+  }
 }
 
 

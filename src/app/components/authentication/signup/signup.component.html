@@ -8,17 +8,18 @@
     <div class="box-form">
         <div class="box-form__item">
             <input required minlength="2" maxlength="25" #nameM="ngModel" class="login-input name" [(ngModel)]="name" name="name" type="text" placeholder="Nombre" />
-            <span class="help-block" *ngIf="nameM.touched && nameM.errors">
+            <span class="error alert-error" *ngIf="nameM.touched && nameM.errors">
                 <span *ngIf="nameM.errors.required">
-                                Falta tu nombre :(
-                </span>
+                            Falta tu nombre 
+                            :(
+                </span>   
                 <span *ngIf="nameM.errors.minlength">
                                 Vamos, solo una letra?
                 </span>
                 <span *ngIf="nameM.errors.maxlength">
-                                c mamo
+                                 c mamo
                 </span>
-            </span>
+            </span>  
             <input #lastnameM="ngModel" class="login-input name" [(ngModel)]="lastname" name="lastname" type="text" placeholder="Apellido" />
         </div>
         

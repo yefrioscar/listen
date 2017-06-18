@@ -9,6 +9,7 @@ import { Idea } from '../../../models/idea.model';
   templateUrl: './idea-item.component.html'
 })
 export class IdeaItemComponent implements OnInit {
+  like:boolean = true;
 
 
   @Input()  idea: Idea;

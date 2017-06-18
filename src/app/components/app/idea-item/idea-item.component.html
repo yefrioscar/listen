@@ -7,13 +7,15 @@
     <p class="idea-item-1__content--descripcion">{{idea?.descripcion | limitText: 80 }}<a href="#" class="box-header__cta"> Leer más</a></p>
     <div class="idea-item-1__content--actions">
       <div class="likes-action">
-        <svg  class="likes-action__icon" xmlns="http://www.w3.org/2000/svg" viewBox="2473 -728.15 21.671 20.15"><defs><style>.a{fill:#a1a1a1;}</style></defs><g transform="translate(2473 -728.15)"><path class="a" d="M21.636,7.834c-.316-3.482-2.781-6.008-5.865-6.008A5.83,5.83,0,0,0,10.776,4.7,5.618,5.618,0,0,0,5.9,1.826C2.817,1.826.352,4.352.036,7.834a6.2,6.2,0,0,0,.184,2.283,9.793,9.793,0,0,0,3,5.007l7.55,6.852,7.68-6.851a9.794,9.794,0,0,0,3-5.007A6.209,6.209,0,0,0,21.636,7.834Zm-1,2.092A8.956,8.956,0,0,1,17.893,14.5l-7.117,6.35L3.781,14.506a8.963,8.963,0,0,1-2.749-4.58A5.413,5.413,0,0,1,.859,7.967l.006-.042C1.136,4.874,3.254,2.66,5.9,2.66A4.886,4.886,0,0,1,10.39,5.792l.384.91.384-.91A5.035,5.035,0,0,1,15.771,2.66c2.647,0,4.765,2.214,5.041,5.3A5.407,5.407,0,0,1,20.64,9.926Z" transform="translate(0 -1.826)"/></g></svg>
-        <span class="likes-action__count">1k</span>
+
+        <img *ngIf="like" class="likes-action__icon" (click)="!like = like" src="assets/like.svg" alt="">
+
+        <span class="likes-action__count">{{ like }}</span>
       </div>
       <div class="people-action">
         <div class="people-action__titular">
           <img class="people-action__titular--img profileimage-idea" src="assets/girl1.jpg" alt="">
-          <span class="people-action__titular--name">{{idea?.titular}}</span>
+          <span class="people-action__titular--name">{{ idea?.titular }}</span>
         </div>
         <div class="people-action__Contributors">
           <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img  profileimage-idea">
