@@ -3,7 +3,7 @@
 
 <p class="line">O crea una cuenta</p>
 
-<form #userForm="ngForm" class="login" (submit)="signUp()">
+<form #userForm="ngForm" class="login" (submit)="signUp(userForm)">
 
     <div class="box-form">
         <div class="box-form__item" [ngClass]="{'has-error': nameM.touched && !nameM.valid || lastnameM.touched && !lastnameM.valid, 'has-confirm': nameM.valid}">
@@ -100,7 +100,7 @@
     </div>
 
     <div class="form-button">
-        <input class="login-button" type="submit" value="Registrarse"  (click)="clicked(userForm)">
+        <input class="login-button" type="submit" value="Registrarse" >
     </div>
 </form>
 
