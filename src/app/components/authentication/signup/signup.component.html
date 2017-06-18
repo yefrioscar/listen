@@ -89,13 +89,18 @@
 
 
         <div class="box-form__item terms">
-            <input id="login-checkbox" [(ngModel)]="terms" name="terms" class="login-checkbox" type="checkbox" />
+            <input id="login-checkbox"
+                        [(ngModel)]="terms"
+                        required
+                        name="terms"
+                        class="login-checkbox"
+                        type="checkbox" />
             <label for="login-checkbox" class="terms-copy">Acepto los terminos de servicio y la política de privacidad de Listen</label>
         </div>
     </div>
 
     <div class="form-button">
-        <input class="login-button" type="submit" value="Registrarse"  (click)="clicked(ngForm)">
+        <input class="login-button" type="submit" value="Registrarse"  (click)="clicked(userForm)">
     </div>
 </form>
 
