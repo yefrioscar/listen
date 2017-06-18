@@ -22,7 +22,7 @@
             </span>  
             <input #lastnameM="ngModel" class="login-input name" [(ngModel)]="lastname" name="lastname" type="text" placeholder="Apellido" />
         </div>
-        
+
         <div class="box-form__item" [ngClass]="{'has-error': emailM.touched && !emailM.valid, 'has-confirm': emailM.valid}">
             <input class="login-input"
                     type="email" 
@@ -37,6 +37,8 @@
                 <span *ngIf="emailM.errors.pattern">Ingresar un correo valido.</span>
             </span>
         </div>
+
+
 
         <div class="box-form__item" [ngClass]="{'has-error': passM.touched && !passM.valid, 'has-confirm': passM.valid}">
             <input class="login-input"
