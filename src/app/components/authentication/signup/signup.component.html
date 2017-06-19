@@ -8,17 +8,15 @@
     <div class="box-form">
         <div class="box-form__item">
             <input required minlength="2" maxlength="25" #nameM="ngModel" class="login-input name" [(ngModel)]="name" name="name" type="text" placeholder="Nombre" />
-            <span class="error alert-error" *ngIf="nameM.touched && nameM.errors">
-                <span *ngIf="nameM.errors.required">
+            <span class="help-block" *ngIf="nameM.touched && nameM.errors">
+                <span  *ngIf="nameM.errors.required">
                             Falta tu nombre 
                             :(
                 </span>   
                 <span *ngIf="nameM.errors.minlength">
                                 Vamos, solo una letra?
                 </span>
-                <span *ngIf="nameM.errors.maxlength">
-                                 c mamo
-                </span>
+                <span *ngIf="nameM.errors.maxlength">c mamo</span>
             </span>  
             <input #lastnameM="ngModel" class="login-input name" [(ngModel)]="lastname" name="lastname" type="text" placeholder="Apellido" />
         </div>
@@ -56,6 +54,8 @@
                         <span *ngIf="passM.errors.pattern">Al menos una mayúscula y número.</span>
                     </span>
         </div>
+
+
         <div class="box-form__item" [ngClass]="{'has-error': fecNacM.touched && !fecNacM.valid, 'has-confirm': fecNacM.valid}">
             <input class="login-input"
                     type="Date" 

@@ -4,7 +4,7 @@
   </div>
   <div class="idea-item-1__content">
     <h3 class="idea-item-1__content--title">{{idea?.beneficios}} </h3>
-    <p class="idea-item-1__content--descripcion">{{idea?.descripcion | limitText: 80 }}<a href="#" class="box-header__cta"> Leer más</a></p>
+    <p class="idea-item-1__content--descripcion">{{idea?.descripcion | limitText: 65 }}<a href="#" class="box-header__cta"> Leer más</a></p>
     <div class="idea-item-1__content--actions">
       <div class="likes-action">
 
@@ -15,13 +15,44 @@
       <div class="people-action">
         <div class="people-action__titular">
           <img class="people-action__titular--img profileimage-idea" src="assets/girl1.jpg" alt="">
-          <span class="people-action__titular--name">{{ idea?.titular }}</span>
+          <span class="people-action__titular--name">{{ idea?.titular }}
+              <div class="show-titular">
+
+                <div class="show-titular__perfil">
+                  <img class="profileimage-idea" src="assets/girl1.jpg" alt="">
+                  <div class="show-titular__perfil--info">
+                    <span class="name-preview">{{ idea?.titular }}</span>
+                    <a class="link-preview" href="#">ver perfil</a>
+                  </div>
+                </div>
+
+                <div class="show-itular__content">
+                  <span class="show-titular__content--item"><span class="show-titular__content--item-number">10k</span> seguidores</span>
+                  <span class="show-titular__content--item"><span class="show-titular__content--item-number">800</span> seguidos</span>
+                  <button class="button-follow">{{follow ? 'siguiendo': 'seguir'}}</button>
+                </div>
+
+              </div>
+          </span>
         </div>
         <div class="people-action__Contributors">
           <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img  profileimage-idea">
           <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img profileimage-idea">
           <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img profileimage-idea">
-          <div  class="people-action__Contributors--img profileimage-idea more-users"><a class="more-users-link">+10</a></div>
+          <div  class="people-action__Contributors--img profileimage-idea more-users">
+            <a class="more-users-link">+10</a>
+         <!--   <div class="background-modal">
+              <div class="allusers">
+                <div class="allusers-item">
+                  <img class="profileimage-idea" src="assets/girl1.jpg" alt="">
+                  <span>{{ idea?.titular }}</span>
+                  <a class="link-preview" href="#">ver perfil</a>
+                </div>
+              </div>
+              
+            </div>
+            -->
+          </div>
         </div>
       </div>
     </div>

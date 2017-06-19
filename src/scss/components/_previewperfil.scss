@@ -1,0 +1,78 @@
+.show-titular {
+    display: none;
+    width: 150px;
+    height:150px;
+    background-color: white;
+    position: absolute;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,.16);
+    
+    font-weight: $regular;
+
+    &__perfil {
+        display: flex;
+        align-items: center;
+
+        &--info {
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .name-preview {
+                font-size: 15px;
+            }
+
+            .link-preview {
+                color: map-get($colors, main-color);
+                text-decoration: none;
+            }
+
+        }
+    }
+
+
+    &__content {
+
+
+        &--item {
+            color: map-get($colors, second-color-3 );
+            font-size: 13px;
+            margin-bottom: .2em;
+            
+            &-number {
+                color: map-get($colors, second-color-4 );
+
+            }
+
+        }
+
+        
+
+
+    }
+}
+
+.show-itular__content {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+.button-follow {
+    cursor:pointer;
+    margin-top: .2em;
+    height: 32px;
+    width: 100%;
+    color:white;
+    border:none;
+    background-color: map-get($colors, main-color );
+    border-radius: 5px;
+
+    &:hover {
+
+    }
+}
