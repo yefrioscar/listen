@@ -3,93 +3,94 @@
 
 <p class="line">O crea una cuenta</p>
 
-<form #userForm="ngForm" class="login" (submit)="signUp()">
+<form [formGroup]="registerForm" class="login" (submit)="signUp(registerForm)">
 
     <div class="box-form">
-        <div class="box-form__item">
-            <input required minlength="2" maxlength="25" #nameM="ngModel" class="login-input name" [(ngModel)]="name" name="name" type="text" placeholder="Nombre" />
-            <span class="help-block" *ngIf="nameM.touched && nameM.errors">
-                <span  *ngIf="nameM.errors.required">
-                            Falta tu nombre 
-                            :(
-                </span>   
-                <span *ngIf="nameM.errors.minlength">
-                                Vamos, solo una letra?
-                </span>
-                <span *ngIf="nameM.errors.maxlength">c mamo</span>
-            </span>  
-            <input #lastnameM="ngModel" class="login-input name" [(ngModel)]="lastname" name="lastname" type="text" placeholder="Apellido" />
-        </div>
+        <div class="box-form__item" 
+        [ngClass]="{'has-error': registerForm.controls.name.touched && !registerForm.controls.name.valid,
+                    'has-confirm': registerForm.controls.name.valid }">
+            
+            <input class="login-input name"
+                    type="text" 
+                    placeholder="Nombre"
+                    formControlName="name" />
 
-        <div class="box-form__item" [ngClass]="{'has-error': emailM.touched && !emailM.valid, 'has-confirm': emailM.valid}">
+
+            <span class="help-block" *ngIf="registerForm.controls.name.touched && registerForm.controls.name.errors">
+              <span *ngIf="registerForm.controls.name.errors.required" > Ingresa tu nombre</span>
+              <span *ngIf="registerForm.controls.name.errors.minlength" > Al menos 2 letras</span>
+              <span *ngIf="registerForm.controls.name.errors.maxlength" > Como máximo 20 letras</span>
+            </span>
+
+            <input class="login-input name"
+                    type="text" 
+                    placeholder="Apellido"
+                    formControlName="lastname" />
+
+            <span class="help-block lastname" *ngIf="registerForm.controls.lastname.touched && registerForm.controls.lastname.errors">
+              <span *ngIf="registerForm.controls.lastname.errors.required" > Ingresa tu apellido</span>
+              <span *ngIf="registerForm.controls.lastname.errors.minlength" > Al menos 2 letras</span>
+              <span *ngIf="registerForm.controls.lastname.errors.maxlength" > Como máximo 20 letras</span>
+            </span>
+        </div>
+        
+        <div class="box-form__item" [ngClass]="{'has-error': registerForm.controls.email.touched && !registerForm.controls.email.valid,
+                                                'has-confirm': registerForm.controls.email.valid }">
             <input class="login-input"
                     type="email" 
                     placeholder="Correo electrónico"
-                    required
-                    [(ngModel)]="email" 
-                    name="email"
-                    #emailM="ngModel"  />
+                    formControlName="email"  />
 
-            <span class="help-block" *ngIf="emailM.touched && emailM.errors">
-                <span *ngIf="emailM.errors.required">Olvidaste ingresar tu correo.</span>
-                <span *ngIf="emailM.errors.pattern">Ingresar un correo valido.</span>
+            <span class="help-block" *ngIf="registerForm.controls.email.touched && registerForm.controls.email.errors">
+              <span *ngIf="registerForm.controls.email.errors.required" > Ingresa tu correo electrónico</span>
+            </span>
+        </div>
+
+        <div class="box-form__item" [ngClass]="{'has-error': registerForm.controls.password.touched && !registerForm.controls.password.valid,
+                                                'has-confirm': registerForm.controls.password.valid }">
+            <input class="login-input"
+                    type="password" 
+                    placeholder="Contraseña"
+                    formControlName="password" />
+
+            <span class="help-block" *ngIf="registerForm.controls.password.touched && registerForm.controls.password.errors">
+              <span *ngIf="registerForm.controls.password.errors.required" > Ingresa tu contraseña</span>
+              <span *ngIf="registerForm.controls.password.errors.minlength" > Al menos 8 caracteres</span>
+            </span>
+        </div>
+        <div class="box-form__item" [ngClass]="{'has-error': registerForm.controls.fecNac.touched && !registerForm.controls.fecNac.valid,
+                                                'has-confirm': registerForm.controls.fecNac.valid }">
+            <input class="login-input"
+                    type="Date" 
+                    placeholder="Fecha de nacimiento"
+                    formControlName="fecNac"  />
+
+            <span class="help-block" *ngIf="registerForm.controls.fecNac.touched && registerForm.controls.fecNac.errors">
+              <span *ngIf="registerForm.controls.fecNac.errors.required" > Ingresa tu fecha de nacimiento</span>
             </span>
         </div>
 
 
-
-        <div class="box-form__item" [ngClass]="{'has-error': passM.touched && !passM.valid, 'has-confirm': passM.valid}">
-            <input class="login-input"
-                    type="password" 
-                    placeholder="Contraseña"
-                    required
-                    minlength="8"
-                    [(ngModel)]="password" 
-                    name="password"
-                    #passM="ngModel"  />
-
-                    <span class="help-block" *ngIf="passM.touched && passM.errors">
-                        <span *ngIf="passM.errors.required">Olvidaste ingresar tu contraseña.</span>
-                        <span *ngIf="passM.errors.minlength">Al menos 8 carácteres.</span>
-                        <span *ngIf="passM.errors.pattern">Al menos una mayúscula y número.</span>
-                    </span>
-        </div>
-
-
-        <div class="box-form__item" [ngClass]="{'has-error': fecNacM.touched && !fecNacM.valid, 'has-confirm': fecNacM.valid}">
-            <input class="login-input"
-                    type="Date" 
-                    placeholder="Fecha de nacimiento"
-                    required
-                    [(ngModel)]="fecNac" 
-                    name="fecNac"
-                    #fecNacM="ngModel"  />
-
-                    <span class="help-block" *ngIf="fecNacM.touched && fecNacM.errors">
-                        <span *ngIf="fecNacM.errors.required">Olvidaste ingresar tu fecha de nacimiento.</span>
-                        <span *ngIf="fecNacM.errors.pattern">dd/mm/aa.</span>
-                    </span>
-        </div>
-
-
-        <div class="box-form__item terms">
+        <div class="box-form__item terms" [ngClass]="{'has-error': registerForm.controls.terms.touched && !registerForm.controls.terms.valid,
+                                                      'has-confirm': registerForm.controls.terms.valid }">
             <input id="login-checkbox"
-                        [(ngModel)]="terms"
-                        required
-                        name="terms"
-                        class="login-checkbox"
-                        type="checkbox" />
+                   class="login-checkbox"
+                   type="checkbox"
+                   formControlName="terms" />
             <label for="login-checkbox" class="terms-copy">Acepto los terminos de servicio y la política de privacidad de Listen</label>
+            <span class="help-block" *ngIf="registerForm.controls.terms.touched && registerForm.controls.terms.errors">
+              <span *ngIf="registerForm.controls.terms.errors.required" > Debes aceptar nuestros terminos y condiciones.</span>
+            </span>
         </div>
     </div>
 
     <div class="form-button">
-        <input class="login-button" type="submit" value="Registrarse"  (click)="clicked(userForm)">
+        <input class="login-button" type="submit" value="Registrarse" >
     </div>
 </form>
 
 <p>
-    {{userForm.value | json}}
-    {{userForm.control.status}}
+    {{registerForm.value | json}}
+    {{registerForm.status}}
 </p>
 
