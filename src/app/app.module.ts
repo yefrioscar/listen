@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RouterModule, Routes} from'@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
 import { SocialComponent } from './components/authentication/login-social/social.component';
 import { SignupComponent } from './components/authentication/signup/signup.component';
@@ -11,7 +11,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { HeaderSignupComponent } from './components/authentication/header-signup/header-signup.component';
 import { SigninComponent } from './components/authentication/signin/signin.component';
 import { HeaderSigninComponent } from './components/authentication/header-signin/header-signin.component';
-import { DniSignupComponent } from './components/authentication/dni-signup/dni-signup.component';
+import { VerifyAccountComponent } from './components/authentication/verify-account/verify-account.component';
 import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
 import { AuthoService } from './services/autho.service';
 import { NavBarComponent } from './components/app/nav-bar/nav-bar.component';
@@ -21,28 +21,29 @@ import { IdeaItemComponent } from './components/app/idea-item/idea-item.componen
 import { LimitTextPipe } from './pipes/limit-text.pipe';
 
 const appRoutes: Routes = [
-  {path:'', component: LandingComponent},
-  {path:'home', component: HomeComponent},
-  {path:'signup', component: SignupComponent},
-  {path:'signin', component: SigninComponent},
-  {path: 'dnisignup', component: DniSignupComponent},
+  {path: '', component: LandingComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'signin', component: SigninComponent},
+  {path: 'verify-account/:email', component: VerifyAccountComponent},
   {path: 'resetpassword', component: ResetPasswordComponent}
-]
+];
 
 @NgModule({
   declarations: [
-     AppComponent, 
-     SignupComponent, 
-     SocialComponent, 
-     LandingComponent, 
-     HeaderSignupComponent, 
-     SigninComponent, HeaderSigninComponent,
-     DniSignupComponent,
+     AppComponent,
+     SignupComponent,
+     SocialComponent,
+     LandingComponent,
+     HeaderSignupComponent,
+     SigninComponent,
+     HeaderSigninComponent,
      ResetPasswordComponent,
      NavBarComponent,
      HomeComponent,
      HeaderComponent,
      IdeaItemComponent,
+     VerifyAccountComponent,
      LimitTextPipe
   ],
   imports: [
