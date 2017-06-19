@@ -7,14 +7,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VerifyAccountComponent implements OnInit {
   email: string;
-  param:any;
+  param: any;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.param = this.route.params.subscribe(params => {
       this.email = params['email'];
-    })
+    });
   }
 
 }
