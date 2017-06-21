@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthoService } from '../../../services/autho.service';
+import { AbstractControl, FormArray, FormControl, FormBuilder, FormGroup, Validators, NG_VALIDATORS } from '@angular/forms';
+
 
 @Component({
   selector: 'app-verify-account',
@@ -7,11 +10,33 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VerifyAccountComponent implements OnInit {
   email: string;
-  param: any;
+  confirmForm: FormGroup;
+  value = 'XYZ';
+  private param: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private fb: FormBuilder,
+              private router: Router,
+              private service: AuthoService) { }
+
+
+  onKey(confirm: string){
+    
+    if (confirm.length == 6) {
+      this.service.verifyAccount(this.email, confirm).subscribe(
+        response => console.log(response),
+        error  => console.log(error)
+      );
+    }  else {
+      console.log('error');
+    }
+  }
 
   ngOnInit() {
+    this.confirmForm = this.fb.group({
+      confirm: '',
+    });
+
     this.param = this.route.params.subscribe(params => {
       this.email = params['email'];
     });

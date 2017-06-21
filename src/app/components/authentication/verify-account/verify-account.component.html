@@ -6,11 +6,11 @@
     <img src="assets/listen-blue-logo.svg" alt="Logo of listen">
   </div>
 
-  <form action="" class="login">
+  <form [formGroup]="confirmForm" class="login">
 
   <div class="box-form reset-form">
     <div class="box-form__item">
-      <input class="login-input reset-form__input" type="text" placeholder="Digitar código" />
+      <input (keyup)="onKey(confirmForm.controls.confirm.value)" formControlName="confirm" class="login-input reset-form__input" type="text" placeholder="Digitar código" />
     </div>
   </div> 
 

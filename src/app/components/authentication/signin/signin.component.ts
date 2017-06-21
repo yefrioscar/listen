@@ -8,7 +8,7 @@ import { Router, NavigationExtras } from '@angular/router';
 export class SigninComponent implements OnInit {
   email: string;
   password: string;
-
+  token: string;
   constructor(private service: AuthoService,
               private router: Router ) { }
 
@@ -18,8 +18,10 @@ export class SigninComponent implements OnInit {
   signIn(){
     this.service.signIn(this.email,this.password).subscribe(
       response => {
-        console.log(response)
-        this.router.navigate(['/home'])
+        this.token = response.token;
+        console.log(response.data, response.token);
+        
+      this.router.navigate(['/Inicio'])
       },
       error => console.log(error)
     )

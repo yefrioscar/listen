@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthoService } from '../../../services/autho.service';
+import { IdeasService } from '../../../services/ideas.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { Idea } from '../../../models/idea.model';
 
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
 
   ideas: Idea[] = [];
   idea: Idea;
-  constructor(private service: AuthoService,
+  constructor(private serviceAutho: AuthoService,
+              private serviceIdeas: IdeasService,
               private router: Router ) { }
 
   ngOnInit() {
@@ -20,12 +22,15 @@ export class HomeComponent implements OnInit {
 
 
   getIdeas() {
-    this.service.getIdeas().subscribe(
+    this.serviceIdeas.getIdeas().subscribe(
         response => {
-          this.idea = response,
-          this.ObjectToArray(this.ideas,this.idea)
+          console.log(response);
+          this.ideas = response
         },
-        error => console.log(error)
+        error => {
+          console.log(error),
+          this.ideas = error
+        }
       );
   }
 

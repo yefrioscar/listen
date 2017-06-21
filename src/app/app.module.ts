@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
 
+/* Components */
 import { SocialComponent } from './components/authentication/login-social/social.component';
 import { SignupComponent } from './components/authentication/signup/signup.component';
 import { AppComponent } from './app.component';
@@ -13,20 +14,28 @@ import { SigninComponent } from './components/authentication/signin/signin.compo
 import { HeaderSigninComponent } from './components/authentication/header-signin/header-signin.component';
 import { VerifyAccountComponent } from './components/authentication/verify-account/verify-account.component';
 import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
-import { AuthoService } from './services/autho.service';
 import { NavBarComponent } from './components/app/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/app/home/home.component';
 import { HeaderComponent } from './components/app/header/header.component';
 import { IdeaItemComponent } from './components/app/idea-item/idea-item.component';
+
+
+/* pipes */
 import { LimitTextPipe } from './pipes/limit-text.pipe';
+
+/* services */
+import { AuthoService } from './services/autho.service';
+import { IdeasService } from './services/ideas.service';
+
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'signin', component: SigninComponent},
-  {path: 'verify-account/:email', component: VerifyAccountComponent},
-  {path: 'resetpassword', component: ResetPasswordComponent}
+  {path: 'Inicio', component: HomeComponent},
+  {path: 'registrarse', component: SignupComponent},
+  {path: 'ingresar', component: SigninComponent},
+  {path: 'verificar-cuenta/:email', component: VerifyAccountComponent},
+  {path: 'reestablecer-contraseña', component: ResetPasswordComponent}
 ];
 
 @NgModule({
@@ -51,9 +60,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    SlimLoadingBarModule.forRoot()
   ],
-  providers: [AuthoService],
+  providers: [AuthoService, IdeasService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

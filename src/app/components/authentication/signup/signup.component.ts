@@ -2,7 +2,9 @@ import { Component, Directive, OnInit } from '@angular/core';
 import { AuthoService } from '../../../services/autho.service';
 import { User } from '../../../models/user.model';
 import { Router, NavigationExtras } from '@angular/router';
-import { AbstractControl,FormArray, FormControl, FormBuilder, FormGroup, Validators, NG_VALIDATORS } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormBuilder, FormGroup, Validators, NG_VALIDATORS } from '@angular/forms';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+
 
 @Component({
   selector: 'signup',
@@ -11,13 +13,13 @@ import { AbstractControl,FormArray, FormControl, FormBuilder, FormGroup, Validat
 export class SignupComponent implements OnInit {
 
   registerForm: FormGroup;
-  dni: string;
 
   constructor(
     private service: AuthoService,
     private router: Router,
-    private fb: FormBuilder
-  ){
+    private fb: FormBuilder,
+    private SlimLoadingBarService: SlimLoadingBarService
+  ) {
 
   }
 
@@ -40,22 +42,44 @@ export class SignupComponent implements OnInit {
    const email = registerForm.controls.email.value;
    const password = registerForm.controls.password.value;
    const fecNac = registerForm.controls.fecNac.value;
+   const terms = registerForm.controls.terms.value;
 
   if (registerForm.dirty && registerForm.valid) {
-    this.service.signUp(this.dni, name , lastname , email, password, fecNac).subscribe(
+
+
+      this.service.signUp(name , lastname , email, password, fecNac, terms).subscribe(
        response => {
+         this.router.navigate(['/verificar-cuenta', email])
          console.log(response);
-         this.router.navigate(['/verify-account', email]);
        },
-       error => console.log(error)
-     );
+       error => console.log(error));
   } else {
+
     registerForm.controls.name.markAsTouched();
     registerForm.controls.lastname.markAsTouched();
     registerForm.controls.email.markAsTouched();
     registerForm.controls.password.markAsTouched();
     registerForm.controls.fecNac.markAsTouched();
+
   }
  }
+/*
+setInterval(() => {
+            this.router.navigate(['/verify-account', email]);
+      }, 2500);
+*/
+    startLoading() {
+        this.SlimLoadingBarService.start(() => {
+            console.log("sdsd");
+        });
+    }
+
+    completeProgress() {
+        this.SlimLoadingBarService.complete();
+    }
+
+    resetProgress() {
+        this.SlimLoadingBarService.reset();
+    }
 
 }
