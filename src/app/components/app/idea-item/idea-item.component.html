@@ -1,35 +1,38 @@
+<modaluser *ngIf="show" (click)="show = false" [UsuariosPorIdea]="UsuariosPorIdea"></modaluser>
+
+
 <div class="idea-item-1">
   <div class="idea-item-1__img">
     <img class="idea-item-1__img-item" src="assets/saasd.png" alt="Referencia">
   </div>
   <div class="idea-item-1__content">
-    <h3 class="idea-item-1__content--title">{{idea?.beneficios}} </h3>
+    <h3 class="idea-item-1__content--title">{{idea?.nombre}} </h3>
     <p class="idea-item-1__content--descripcion">{{idea?.descripcion | limitText: 65 }}<a href="#" class="box-header__cta"> Leer más</a></p>
     <div class="idea-item-1__content--actions">
       <div class="likes-action">
 
         <img *ngIf="like" class="likes-action__icon" (click)="!like = like" src="assets/like.svg" alt="">
 
-        <span class="likes-action__count">{{ like }}</span>
+        <span class="likes-action__count">{{ idea?.like }}</span>
       </div>
       <div class="people-action">
         <div class="people-action__titular">
-          <img class="people-action__titular--img profileimage-idea" src="assets/girl1.jpg" alt="">
-          <span class="people-action__titular--name">{{ idea?.titular }}
+          <img class="people-action__titular--img profileimage-idea" src="{{idea?.fotoCreador}}" alt="">
+          <span class="people-action__titular--name">{{ idea?.nombreCreador }}
               <div class="show-titular">
 
                 <div class="show-titular__perfil">
-                  <img class="profileimage-idea" src="assets/girl1.jpg" alt="">
-                  <div class="show-titular__perfil--info">
-                    <span class="name-preview">{{ idea?.titular }}</span>
+                  <img class="profileimage-idea" src="{{idea?.fotoCreador}}" alt="">
+                  <div class="show-titular__perfil--info"> 
+                    <span class="name-preview">{{ idea?.nombreCreador }}</span>
                     <a class="link-preview" href="#">ver perfil</a>
                   </div>
-                </div>
+                </div> 
 
                 <div class="show-itular__content">
-                  <span class="show-titular__content--item"><span class="show-titular__content--item-number">10k</span> seguidores</span>
+                  <span class="show-titular__content--item"><span class="show-titular__content--item-number">20k</span> seguidores</span>
                   <span class="show-titular__content--item"><span class="show-titular__content--item-number">800</span> seguidos</span>
-                  <button class="button-follow">{{follow ? 'siguiendo': 'seguir'}}</button>
+                  <button class="button-follow">{{idea?.sigueAlCreador ? 'siguiendo': 'seguir'}}</button>
                 </div>
 
               </div>
@@ -40,18 +43,8 @@
           <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img profileimage-idea">
           <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img profileimage-idea">
           <div  class="people-action__Contributors--img profileimage-idea more-users">
-            <a class="more-users-link">+10</a>
-         <!--   <div class="background-modal">
-              <div class="allusers">
-                <div class="allusers-item">
-                  <img class="profileimage-idea" src="assets/girl1.jpg" alt="">
-                  <span>{{ idea?.titular }}</span>
-                  <a class="link-preview" href="#">ver perfil</a>
-                </div>
-              </div>
-              
-            </div>
-            -->
+            <a (click)="show = !show" (click)="toggle()" [ngClass]="actived" class="more-users-link">{{idea?.cantContrib}}</a>
+            
           </div>
         </div>
       </div>

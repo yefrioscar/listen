@@ -28,10 +28,11 @@ import { AuthoService } from './services/autho.service';
 import { IdeasService } from './services/ideas.service';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { ModaluserComponent } from './components/app/modaluser/modaluser.component';
 
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
-  {path: 'Inicio', component: HomeComponent},
+  {path: 'inicio', component: HomeComponent},
   {path: 'registrarse', component: SignupComponent},
   {path: 'ingresar', component: SigninComponent},
   {path: 'verificar-cuenta/:email', component: VerifyAccountComponent},
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
      HeaderComponent,
      IdeaItemComponent,
      VerifyAccountComponent,
-     LimitTextPipe
+     LimitTextPipe,
+     ModaluserComponent
   ],
   imports: [
     BrowserModule,

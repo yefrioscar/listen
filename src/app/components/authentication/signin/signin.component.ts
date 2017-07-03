@@ -21,7 +21,7 @@ export class SigninComponent implements OnInit {
         this.token = response.token;
         console.log(response.data, response.token);
         
-      this.router.navigate(['/Inicio'])
+      this.router.navigate(['/inicio'])
       },
       error => console.log(error)
     )

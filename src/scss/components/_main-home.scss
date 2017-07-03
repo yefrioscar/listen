@@ -3,16 +3,37 @@
     &-gl{
        margin-left: 225px;
        width: 100%;
-       height:100vh;
        background-color: #f7f7f7;
        padding-right: 50px;
        padding-left: 50px;
-       margin-bottom: 5em;
+       padding-bottom: 10em;
        &__app {
            margin-top: 3em;
            display: flex;
            flex-wrap: wrap;
            justify-content: center;
+
+           
        }
+    }
+}
+
+.categorias_main {
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    &__title {
+        margin-bottom: 1em;
+        color: map-get($colors, second-color-5 );
+    }
+
+    &__item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }

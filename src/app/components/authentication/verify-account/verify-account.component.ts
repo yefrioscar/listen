@@ -24,7 +24,13 @@ export class VerifyAccountComponent implements OnInit {
     
     if (confirm.length == 6) {
       this.service.verifyAccount(this.email, confirm).subscribe(
-        response => console.log(response),
+        response => {
+          console.log(response);
+          let v = response.success;
+          if(v == true) {
+            this.router.navigate(['ingresar']);
+          }
+        },
         error  => console.log(error)
       );
     }  else {

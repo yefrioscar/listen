@@ -11,7 +11,6 @@ import { Idea } from '../../../models/idea.model';
 export class HomeComponent implements OnInit {
 
   ideas: Idea[] = [];
-  idea: Idea;
   constructor(private serviceAutho: AuthoService,
               private serviceIdeas: IdeasService,
               private router: Router ) { }
@@ -25,11 +24,10 @@ export class HomeComponent implements OnInit {
     this.serviceIdeas.getIdeas().subscribe(
         response => {
           console.log(response);
-          this.ideas = response
+          this.ideas = response;
         },
         error => {
-          console.log(error),
-          this.ideas = error
+          console.log(error);
         }
       );
   }

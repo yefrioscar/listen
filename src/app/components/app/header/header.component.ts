@@ -6,8 +6,14 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   show = false;
-  active = 'active';
+  active = '';
   visible = false;
+
+
+  showNoti = false;
+  activeNoti = '';
+  visibleNoti = false;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -19,8 +25,24 @@ export class HeaderComponent implements OnInit {
   }
 
   toggle() {
+    /* hide others options */
+    this.showNoti = false;
+    this.activeNoti = '';
+
+
+    this.show = !this.show;
     this.visible = !this.visible;
     this.active = this.visible ? 'active' : '';
   }
 
+  toggleNoti() {
+    /* hide others options */
+    this.active = '';
+    this.show = false;
+
+
+    this.showNoti = !this.showNoti;
+    this.visibleNoti = !this.visibleNoti;
+    this.activeNoti = this.visibleNoti ? 'active' : '';
+  }
 }

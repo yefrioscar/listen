@@ -1,5 +1,5 @@
 .background-modal {
-    background-color: black;
+    background-color: rgba(0,0,0,.7);
     position: absolute;
     top:0;
     left:0;
@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 20;
     .allusers {
         width: 330px;
         height:400px;
@@ -24,4 +25,8 @@
         }
 
     }
+}
+
+.actived{
+    
 }

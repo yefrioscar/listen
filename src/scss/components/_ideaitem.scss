@@ -91,6 +91,7 @@
             font-weight: $light;
             color:map-get($colors,second-color-5);
             cursor: pointer;
+            width: 70px;
             &:hover .show-titular{
                     position: absolute;
                     transform: translate(-50%,-50%);
@@ -131,7 +132,12 @@
 
         .more-users {
             background-color: map-get($colors,second-color-6);
-
+            transition: transforms .25s ease;
+            transform: scale(1);
+            cursor:pointer;
+            &:hover{
+                transform: scale(1.2);
+            }
 
             &-link {
                 display: flex;
@@ -142,6 +148,7 @@
                 font-weight: $light;
                 font-size: 10px;
                 color:map-get($colors,second-color-5);
+
 
             }
 

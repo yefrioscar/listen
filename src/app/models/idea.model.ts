@@ -1,14 +1,14 @@
 export interface Idea {
-		beneficios :string,
-		categoria:  string,
-		descripcion : string,
-		disposicionesFinales : string,
-		efectos : string,
-		fechaActualizacion : string,
-		fechaElaboracion : string,
-		formulaLegal : string,
-		motivos : string,
-		numero : string,
-		titular : string
+cantContrib: string,
+descripcion: string,
+fotoContribuidor: string [],
+fotoCreador: string,
+id: string,
+idCreador: string,
+imagen: string,
+like: string,
+nombre: string,
+nombreCreador: string,
+sigueAlCreador: boolean;
 }
 

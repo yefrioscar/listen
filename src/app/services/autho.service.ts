@@ -58,8 +58,8 @@ export class AuthoService {
     verifyAccount(email: string, code: string) {
         return this.http
             .post(`${this.urlAPI}/verificarEmail`, {
-                'email': email,
-                'code': code
+                'codigoVerificacion': code,
+                'email': email
             })
             .map(response => this.extractData(response))
             .catch(error =>  this.handleError(error));
@@ -67,10 +67,6 @@ export class AuthoService {
 
     private extractData(res: Response) {
         const body = res.json();
-        console.log('body', body);
-        console.log('token', body.token);
-        const token = body.token;
-        console.log('tokenSave', token);
         return body;
     }
 

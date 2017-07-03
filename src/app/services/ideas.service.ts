@@ -26,6 +26,20 @@ export class IdeasService {
       .catch(error  => Observable.throw(error.json().data) );
   }
 
+  getUserXIdea() {
+    const token = localStorage.getItem('token');
+    const headers = new Headers({ 'Authorization': token});
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .get(`${this.urlAPI}/contribuidoresxideas`, options)
+      .map(response => {
+        console.log(response);
+        return this.extractData(response);
+      } )
+      .catch(error  => Observable.throw(error.json().data) );
+  }
+
   private extractData(res: Response) {
     const body = res.json();
     console.log('body', body);
