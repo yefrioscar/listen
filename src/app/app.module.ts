@@ -29,6 +29,9 @@ import { IdeasService } from './services/ideas.service';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ModaluserComponent } from './components/app/modaluser/modaluser.component';
+import { IdeaHeadComponent } from './components/app/idea-head/idea-head.component';
+import { IdeaPropsComponent } from './components/app/idea-props/idea-props.component';
+import { IdeaMainComponent } from './components/app/idea-main/idea-main.component';
 
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
@@ -36,7 +39,8 @@ const appRoutes: Routes = [
   {path: 'registrarse', component: SignupComponent},
   {path: 'ingresar', component: SigninComponent},
   {path: 'verificar-cuenta/:email', component: VerifyAccountComponent},
-  {path: 'reestablecer-contraseña', component: ResetPasswordComponent}
+  {path: 'reestablecer-contraseña', component: ResetPasswordComponent},
+  {path: 'idea', component: IdeaMainComponent}
 ];
 
 @NgModule({
@@ -55,7 +59,10 @@ const appRoutes: Routes = [
      IdeaItemComponent,
      VerifyAccountComponent,
      LimitTextPipe,
-     ModaluserComponent
+     ModaluserComponent,
+     IdeaHeadComponent,
+     IdeaPropsComponent,
+     IdeaMainComponent
   ],
   imports: [
     BrowserModule,

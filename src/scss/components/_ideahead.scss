@@ -1,0 +1,64 @@
+.head{
+    background-color: map-get($colors, second-color);
+    padding-top: .3em;
+    padding-bottom: .3em;
+    position: fixed;
+    width: 100%;
+    z-index: 1500;
+    height: 60px;
+    &-container{
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-logo{
+        height: 38px;
+        width: 38px;
+        &__img{
+            font-size: 0px;
+        }
+    }
+
+    &-user{
+        
+    }
+}
+
+.banner{
+    // background-image: url('/../assets/idea-photo.jpg');
+    // height: 370px;
+    // width: 100%;
+    // background-size: cover;
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    position: relative;
+    &-img{
+        max-width: 100%;
+        height: auto;
+    }
+    &-title{
+        position: absolute;
+        text-transform: uppercase;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: map-get($colors, second-color-5);
+        font-size: 36px;
+        >span{
+            background-color: map-get($colors, second-color);
+            
+        }
+    }
+}
+
+.separacion-head{
+    position: relative;
+    top:0;
+    height: 60px;
+}

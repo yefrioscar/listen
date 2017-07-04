@@ -1,0 +1,112 @@
+.props{
+    width: 20%;
+    width: 235px;
+    border-radius: 0px 5px 5px 0px;
+    position: relative;
+    top: -80px;
+    &-container{
+
+    }
+    &-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-nav{
+        margin-bottom: 2em;
+        box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.16);
+        border-radius: 0 5px 5px 0;
+    }
+    
+    &-menu{
+        display: flex;
+        list-style: none;
+        flex-direction: column;
+        
+        &__item{
+            display: block;
+            width: 100%;
+        }
+        &__link{
+            font-size: 20px;
+            color: map-get($colors, second-color-3);
+            background-color: map-get($colors, second-color);
+            display: block;
+            width: 100%;
+            line-height: 3;
+            position: relative;
+            padding-left: 3em;
+            transition: all .15s;
+            
+            &:hover{
+                color: map-get($colors, second-color);
+                background-color: map-get($colors, main-color);
+            }
+            
+        }
+        &__icon{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left:20px;
+            top: 16px;
+            
+        }
+    }
+
+    &-log{
+        padding: 1em;
+        box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.16);
+        background-color: map-get($colors, second-color);
+        border-radius: 0 5px 5px 0;
+        &-content{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: .8em;
+            padding-bottom: .8em;
+        }
+
+        &__item{
+            &-likes{
+                display: flex;
+                align-items: center;
+                position: relative;
+                &--icon{
+                    width: 30px;
+                    height: 30px;
+                    margin-left: 5px;
+                    position: relative;
+                }
+                &--cta{
+                    color: map-get($colors, second-color-4);
+                    margin-left: 5px;
+                }
+            }
+            &--button{
+                font-size: 20px;
+                color: map-get($colors, second-color);
+                background-color: map-get($colors, main-color-light);
+                border-radius: 5px;
+                line-height: 2;
+                display: block;
+                margin-right: 10px;
+                padding-left: .5em;
+                padding-right: .5em;
+                transition: all .25s ease-in-out;
+                &:hover{
+                    background-color: map-get($colors, main-color);
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+.b1{
+    border-radius: 0 5px 0 0;
+}
+
+.b4{
+    border-radius: 0 0 5px 0;
+}
