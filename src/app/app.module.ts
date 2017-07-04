@@ -69,13 +69,10 @@ const appRoutes: Routes = [
      VerifyAccountComponent,
      LimitTextPipe,
      ModaluserComponent,
-<<<<<<< HEAD
      IdeaHeadComponent,
      IdeaPropsComponent,
-     IdeaMainComponent
-=======
+     IdeaMainComponent,
      NotFoundComponent
->>>>>>> a0ad1a54b32c7560c5e58c7851345d66d5b749e0
   ],
   imports: [
     BrowserModule,
