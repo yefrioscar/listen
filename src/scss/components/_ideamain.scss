@@ -1,0 +1,138 @@
+.bugxd{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.idea-main{
+  position: relative;
+  display: flex;
+  width: 80%;
+  top:-40px;
+  
+  
+}
+.tabs-container{
+  display:flex;
+  flex-wrap: no-wrap;
+  position:relative;
+}
+
+.tabs{
+  display:flex;
+  flex-direction:column;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.07);
+  border-radius: 5px;
+
+  &-item{
+    width:150px;
+    height:150px;
+    background-color: map-get($colors, second-color);
+    color: map-get($colors, second-color-3);
+    border-bottom: 2px solid #E3ECEA;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition: all .15s;
+    font-family: $family;
+    font-weight: $light;
+    font-size: 20px;
+    
+    &.active{
+      background-color: #729CFF;
+      border-radius: 5px;
+      transform: scale(1.1);
+      color: map-get($colors, second-color);
+      font-family: $family;
+      font-weight: $light;
+      font-size: 20px;
+    }
+    &>span{
+      
+    }
+    &:hover{
+      
+    }
+  }
+}
+
+.a1{
+  border-radius: 5px 5px 0 0;
+}
+
+.a4{
+  border-radius: 0 0 5px 5px;
+}
+
+.panels{
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  position: relative;
+  &-item{
+    width: 700px;
+    height: 600px;
+    position:absolute;
+    margin-bottom:10px;
+    left: -5000px;
+    &.active{
+      
+      left: 0;
+    }
+ 
+    &__text{
+      width: 700px;
+      height: 600px;
+      border: none;
+      box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.07);
+      border-radius: 5px;
+      padding: 2em;
+      text-align: justify;
+      font-family: $family;
+      font-weight: $light;
+      font-size: 16px;
+      color: #95989A;
+      outline: none;
+      overflow: hidden;
+    }
+  }
+}
+
+.people{
+    width: 100px;
+    height: 600px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.07);
+    background-color: map-get($colors, second-color);
+    border-radius: 5px;
+    right: -700px;
+    &-content{
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+    &-item{
+      
+    }
+    &-title{
+      color: map-get($colors, second-color-3);
+      font-size: 20px;
+      font-weight: $light;
+    }
+    &-peoples{
+
+    }
+}
+
+.peoples-item{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    &__img{
+        width:40px;
+        height:40px;
+        border-radius: 50%;
+    }
+}

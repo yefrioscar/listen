@@ -31,6 +31,9 @@ import { SocketService } from './services/socket.service';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ModaluserComponent } from './components/app/modaluser/modaluser.component';
+import { IdeaHeadComponent } from './components/app/idea-head/idea-head.component';
+import { IdeaPropsComponent } from './components/app/idea-props/idea-props.component';
+import { IdeaMainComponent } from './components/app/idea-main/idea-main.component';
 
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
@@ -38,6 +41,8 @@ const appRoutes: Routes = [
   {path: 'registrarse', component: SignupComponent},
   {path: 'ingresar', component: SigninComponent},
   {path: 'verificar-cuenta/:email', component: VerifyAccountComponent},
+  {path: 'reestablecer-contraseña', component: ResetPasswordComponent},
+  {path: 'idea', component: IdeaMainComponent},
   {path: 'verificar-cuenta', redirectTo: '', pathMatch: 'full'},
   {path: 'reestablecer-contraseña', component: ResetPasswordComponent},
   {path: '404', component: NotFoundComponent},
@@ -64,7 +69,13 @@ const appRoutes: Routes = [
      VerifyAccountComponent,
      LimitTextPipe,
      ModaluserComponent,
+<<<<<<< HEAD
+     IdeaHeadComponent,
+     IdeaPropsComponent,
+     IdeaMainComponent
+=======
      NotFoundComponent
+>>>>>>> a0ad1a54b32c7560c5e58c7851345d66d5b749e0
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,45 @@
+<div class="head">
+    <div class="head-container">
+        <div class="head-content">
+            <div class="head-logo">
+                <img src="assets/listen-blue-logo.svg" alt="Logo listen" class="head-logo__img">
+            </div>
+            <div class="header_main__item--user head-user">
+              <div class="icon-box">
+                <div >
+                  <img class="search" src="assets/search.svg" alt="">
+                </div>
+              </div>
+              <div class="icon-box">
+                <div [ngClass]="activeNoti">
+                  <img  *ngIf="!showNoti; else elseBlock"  (click)="toggleNoti()" class="paper_plane" src="assets/ring1.svg" alt="">
+                  <template #elseBlock>
+                    <img  (click)="toggleNoti()" class="paper_plane" src="assets/ring2.svg" alt="">
+                  </template>
+                  <div *ngIf="showNoti"  class="show-options notifications">
+                    <ul class="notifications-list">
+                      <li class="notifications-list__item">Perfil</li>
+                      <li class="notifications-list__item">Configuración</li>
+                      <li class="notifications-list__item">Cerrar sesión</li>
+                    </ul>
+                  </div>    
+                </div>
+              </div>
+              <div class="icon-box">
+                <div>
+                  <img (click)="toggle()" [ngClass]="active"  class="girl" src="assets/girl.jpg" alt="">
+                  <div *ngIf="show" class="show-options">
+                    <ul class="show-options-list">
+                      <li class="show-options-list__item">Perfil</li>
+                      <li class="show-options-list__item">Configuración</li>
+                      <li (click)="cerrarSesion()" class="show-options-list__item">Cerrar sesión</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="separacion-head"></div>
