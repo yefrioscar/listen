@@ -11,11 +11,17 @@ import { IdeasService } from '../../../services/ideas.service';
   templateUrl: './idea-item.component.html'
 })
 export class IdeaItemComponent implements OnInit {
-  like: boolean = true;
-  follow: boolean = false;
+
   show = false;
   actived = 'actived';
   visible = false;
+
+
+
+  like = false;
+  likeNoti = '';
+  visibleNoti = false;
+  email: string;
 
   UsuariosPorIdea: User[] = [];
 
@@ -42,5 +48,21 @@ export class IdeaItemComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  toogleLike() {
+    this.like = !this.like;
+  }
+
+  follow() {
+    this.serviceIdeas.followUser(this.email).subscribe(
+      response => {
+        
+      },
+      error => {
+
+      }
+
+    )
   }
 }

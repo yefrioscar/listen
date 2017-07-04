@@ -17,10 +17,12 @@
       </div>
       <div class="icon-box">
         <div [ngClass]="activeNoti">
+          
           <img  *ngIf="!showNoti; else elseBlock"  (click)="toggleNoti()" class="paper_plane" src="assets/ring1.svg" alt="">
-          <template #elseBlock>
+          <ng-template #elseBlock>
             <img  (click)="toggleNoti()" class="paper_plane" src="assets/ring2.svg" alt="">
-          </template>
+          </ng-template>
+
             <div *ngIf="showNoti"  class="show-options notifications">
               <ul class="notifications-list">
                 <li class="notifications-list__item">Perfil</li>
@@ -36,6 +38,15 @@
           <img (click)="toggle()" [ngClass]="active"  class="girl" src="assets/girl.jpg" alt="">
             <div *ngIf="show" class="show-options">
               <ul class="show-options-list">
+                <li class="show-options-list__item info-user">
+                  <div class="info-user__item">
+                    <img class="girl" src="assets/girl.jpg" alt="">
+                  </div>
+                  <div class="info-user__item">
+                    <div class="info-user__item-name">Yefri Laura</div>
+                    <div class="info-user__item-correo">yefrioscar9814@gmail.com</div>
+                  </div>
+                </li>
                 <li class="show-options-list__item">Perfil</li>
                 <li class="show-options-list__item">Configuración</li>
                 <li (click)="cerrarSesion()" class="show-options-list__item">Cerrar sesión</li>

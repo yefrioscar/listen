@@ -3,15 +3,15 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
-
+import { Router, NavigationExtras } from '@angular/router';
 
 @Injectable()
 export class AuthoService {
 
-  urlAPI = 'http://localhost:3002/api';
+  urlAPI = 'http://174.138.49.237:3002/api';
   res: Response;
 
-    constructor(private http: Http){}
+    constructor(private http: Http, private router: Router){}
 
     signUp(name: string, lastname: string, email: string, password: string,
     fechanacimiento: string, terms: boolean) {
@@ -42,8 +42,14 @@ export class AuthoService {
             .catch(error => this.handleError(error));
     }
 
-    getCurrentUser(token: String) {
-         
+    getCurrentUser() {
+         const token = localStorage.getItem('token');
+         console.log("token",token);
+         if(token == null) {
+            this.router.navigate(['/ingresar']);
+         } else {
+             this.router.navigate(['inicio']);
+         }
     }
 
     resetpassword(email: string) {

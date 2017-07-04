@@ -91,8 +91,8 @@
 .show-options {
     position: absolute;
     background-color: white;
-    width:150px;
-    height:160px;
+    width:250px;
+    height:200px;
     overflow: hidden;
     right: -1px;
     margin-top: 5px;
@@ -106,6 +106,10 @@
         height:400px;
         z-index: 2000;
  
+    }
+
+    &__userItem {
+        font-size: 12px;
     }
 
 
@@ -131,12 +135,11 @@
             
 
             &:hover {
-                color:White;
-                background-color: rgba(56, 115, 255, 0.6);
+                color:#5d5d5d;
             }
 
             &:last-child {
-                margin-top: 1em;
+               // margin-top: 1em;
                 border-top:1px solid #eaeaea;
 
                 &:hover {
@@ -161,4 +164,46 @@
         }
     }
 
+}
+
+.info-user {
+    cursor: auto;
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    justify-content: flex-start;
+    border-bottom:1px solid #eaeaea;
+    &:hover &__item-name {
+      color:#5d5d5d;
+    }
+
+    &:hover &__item-correo {
+      color:#5d5d5d;
+    }
+
+
+    &:hover {
+        background: none;
+      //   background:linear-gradient(to right, #40deb2, #598aff);
+    }
+
+
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       // color:#5d5d5d;    
+        &:first-child {
+            margin-right: 10px;
+        }
+
+        &-name {
+
+        }
+
+        &-correo {
+            font-size: 12px;
+        }
+    }
 }
