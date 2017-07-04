@@ -13,6 +13,8 @@ export class SigninComponent implements OnInit {
               private router: Router ) { }
 
   ngOnInit() {
+        this.service.getCurrentUser();
+
   }
 
   signIn(){

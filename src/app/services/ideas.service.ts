@@ -8,7 +8,7 @@ import { Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class IdeasService {
 
-  urlAPI = 'http://localhost:3002/api';
+  urlAPI = 'http://174.138.49.237:3002/api';
 
   constructor(private http: Http) { }
 
@@ -18,7 +18,7 @@ export class IdeasService {
     const options = new RequestOptions({ headers: headers });
 
     return this.http
-      .get(`${this.urlAPI}/ideasxusuario`, options)
+      .get(`${this.urlAPI}/idea`, options)
       .map(response => {
         console.log(response);
         return this.extractData(response)
@@ -38,6 +38,35 @@ export class IdeasService {
         return this.extractData(response);
       } )
       .catch(error  => Observable.throw(error.json().data) );
+  }
+
+
+  getIdea() {
+    const token = localStorage.getItem('token');
+    const headers = new Headers({ 'Authorization': token});
+    const options = new RequestOptions({ headers: headers });
+
+
+   return this.http
+      .get(`${this.urlAPI}/idea`, options)
+      .map(response => {
+        console.log(response);
+        return this.extractData(response);
+      } )
+      .catch(error  => Observable.throw(error.json().data) );
+  }
+
+  followUser(email: string) {
+    const token = localStorage.getItem('token');
+    const headers = new Headers({ 'Authorization': token});
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .post(`${this.urlAPI}/seguirPersona`, {
+              'usuarioAseguir': email
+            })
+      .map(response => this.extractData(response))
+      .catch(error => this.handleError(error));
   }
 
   private extractData(res: Response) {

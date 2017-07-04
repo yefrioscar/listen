@@ -1,7 +1,7 @@
 import { Component, Directive, OnInit } from '@angular/core';
 import { AuthoService } from '../../../services/autho.service';
 import { User } from '../../../models/user.model';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { AbstractControl, FormArray, FormControl, FormBuilder, FormGroup, Validators, NG_VALIDATORS } from '@angular/forms';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
@@ -13,7 +13,7 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 export class SignupComponent implements OnInit {
 
   registerForm: FormGroup;
-
+  previousUrl:string;
   constructor(
     private service: AuthoService,
     private router: Router,
@@ -21,9 +21,24 @@ export class SignupComponent implements OnInit {
     private SlimLoadingBarService: SlimLoadingBarService
   ) {
 
+    router.events
+        .filter(event => event instanceof NavigationEnd)
+        .subscribe(e => {
+            this.previousUrl = e['url'];
+            console.log(this.previousUrl);
+            console.log(e.toString());
+        });
+
   }
 
   ngOnInit() {
+    const token = localStorage.getItem('token');
+    if(true) {
+      
+    } else {
+
+    }
+
   this.registerForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
     lastname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],

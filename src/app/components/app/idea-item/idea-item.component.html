@@ -11,14 +11,18 @@
     <div class="idea-item-1__content--actions">
       <div class="likes-action">
 
-        <img *ngIf="like" class="likes-action__icon" (click)="!like = like" src="assets/like.svg" alt="">
+        <img *ngIf="!like; else elseBlock" class="likes-action__icon" (click)="toogleLike()" src="assets/like.svg" alt="">
+          <ng-template #elseBlock>
+            <img class="likes-action__icon" (click)="toogleLike()" src="assets/like-fill.svg" alt="">
+          </ng-template>
+
 
         <span class="likes-action__count">{{ idea?.like }}</span>
       </div>
       <div class="people-action">
         <div class="people-action__titular">
           <img class="people-action__titular--img profileimage-idea" src="{{idea?.fotoCreador}}" alt="">
-          <span class="people-action__titular--name">{{ idea?.nombreCreador }}
+          <span class="people-action__titular--name">{{ idea?.nombreCreador }}sds
               <div class="show-titular">
 
                 <div class="show-titular__perfil">
@@ -32,7 +36,7 @@
                 <div class="show-itular__content">
                   <span class="show-titular__content--item"><span class="show-titular__content--item-number">20k</span> seguidores</span>
                   <span class="show-titular__content--item"><span class="show-titular__content--item-number">800</span> seguidos</span>
-                  <button class="button-follow">{{idea?.sigueAlCreador ? 'siguiendo': 'seguir'}}</button>
+                  <button [ngClass]="actived" class="button-follow" (click)="follow()">{{idea?.sigueAlCreador ? 'siguiendo': 'seguir'}}</button>
                 </div>
 
               </div>

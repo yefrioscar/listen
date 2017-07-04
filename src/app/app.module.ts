@@ -18,6 +18,7 @@ import { NavBarComponent } from './components/app/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/app/home/home.component';
 import { HeaderComponent } from './components/app/header/header.component';
 import { IdeaItemComponent } from './components/app/idea-item/idea-item.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 /* pipes */
@@ -26,6 +27,7 @@ import { LimitTextPipe } from './pipes/limit-text.pipe';
 /* services */
 import { AuthoService } from './services/autho.service';
 import { IdeasService } from './services/ideas.service';
+import { SocketService } from './services/socket.service';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ModaluserComponent } from './components/app/modaluser/modaluser.component';
@@ -36,8 +38,14 @@ const appRoutes: Routes = [
   {path: 'registrarse', component: SignupComponent},
   {path: 'ingresar', component: SigninComponent},
   {path: 'verificar-cuenta/:email', component: VerifyAccountComponent},
-  {path: 'reestablecer-contraseña', component: ResetPasswordComponent}
+  {path: 'verificar-cuenta', redirectTo: '', pathMatch: 'full'},
+  {path: 'reestablecer-contraseña', component: ResetPasswordComponent},
+  {path: '404', component: NotFoundComponent},
+  { path : '**' , redirectTo: '404', pathMatch: 'full' }
 ];
+
+
+
 
 @NgModule({
   declarations: [
@@ -55,7 +63,8 @@ const appRoutes: Routes = [
      IdeaItemComponent,
      VerifyAccountComponent,
      LimitTextPipe,
-     ModaluserComponent
+     ModaluserComponent,
+     NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +74,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     SlimLoadingBarModule.forRoot()
   ],
-  providers: [AuthoService, IdeasService],
+  providers: [AuthoService, IdeasService, SocketService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
               private router: Router ) { }
 
   ngOnInit() {
+    this.serviceAutho.getCurrentUser();
     this.getIdeas();
   }
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router,NavigationEnd  } from '@angular/router';
 import { AuthoService } from '../../../services/autho.service';
 import { AbstractControl, FormArray, FormControl, FormBuilder, FormGroup, Validators, NG_VALIDATORS } from '@angular/forms';
-
+import 'rxjs/add/operator/pairwise';
 
 @Component({
   selector: 'app-verify-account',
@@ -17,11 +17,12 @@ export class VerifyAccountComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
               private router: Router,
-              private service: AuthoService) { }
+              private service: AuthoService) {
+               }
 
 
   onKey(confirm: string){
-    
+  
     if (confirm.length == 6) {
       this.service.verifyAccount(this.email, confirm).subscribe(
         response => {
@@ -39,11 +40,15 @@ export class VerifyAccountComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.confirmForm = this.fb.group({
       confirm: '',
     });
 
     this.param = this.route.params.subscribe(params => {
+      if(params['email'] == null) {
+        
+      }
       this.email = params['email'];
     });
   }
