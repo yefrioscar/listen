@@ -18,6 +18,9 @@ import { NavBarComponent } from './components/app/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/app/home/home.component';
 import { HeaderComponent } from './components/app/header/header.component';
 import { IdeaItemComponent } from './components/app/idea-item/idea-item.component';
+import { IdeaHeadComponent } from './components/app/idea-head/idea-head.component';
+import { IdeaPropsComponent } from './components/app/idea-props/idea-props.component';
+import { IdeaMainComponent } from './components/app/idea-main/idea-main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
@@ -31,9 +34,7 @@ import { SocketService } from './services/socket.service';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ModaluserComponent } from './components/app/modaluser/modaluser.component';
-import { IdeaHeadComponent } from './components/app/idea-head/idea-head.component';
-import { IdeaPropsComponent } from './components/app/idea-props/idea-props.component';
-import { IdeaMainComponent } from './components/app/idea-main/idea-main.component';
+
 
 const appRoutes: Routes = [
   

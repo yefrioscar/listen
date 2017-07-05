@@ -8,6 +8,10 @@ import { SocketService } from '../../../services/socket.service';
 export class IdeaMainComponent implements OnInit {
 
   exposicion:string;
+  efecto:string;
+  beneficio:string;
+  formulalegal:string;
+
   constructor(private socket: SocketService ) { }
 
   ngOnInit() {
@@ -15,7 +19,7 @@ export class IdeaMainComponent implements OnInit {
 
     this.socket.receiveConnections().subscribe(response => {
       console.log(`Hay ${response.numbers} conexiones activas`);
-      alert(`Hay ${response.numbers} conexiones activas`);
+      // alert(`Hay ${response.numbers} conexiones activas`);
     });
 
     
@@ -43,13 +47,16 @@ export class IdeaMainComponent implements OnInit {
 
 
   onKey(){
-    
-
-
     this.socket.sendMessage(this.exposicion);
+    // this.socket.sendMessage(this.efecto);
+    // this.socket.sendMessage(this.beneficio);
+    // this.socket.sendMessage(this.formulalegal);
 
     this.socket.receiveMessages().subscribe(response => {
       this.exposicion = response;
+      // this.efecto = response;
+      // this.beneficio = response;
+      // this.formulalegal = response;
       console.log(response);
     });
   }
