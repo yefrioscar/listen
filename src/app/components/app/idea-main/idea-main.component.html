@@ -24,7 +24,7 @@
     
     <div class="panels">
       <div class="panels-item active">
-        <textarea name="texto" 
+        <textarea (keyup)="onKey()" [(ngModel)]="exposicion" name="texto" 
                   id="texto" 
                   class="panels-item__text">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design, because that is what it lives with. The new becomes threatening, the old reassuring.” Practice won’t get you anywhere if you mindlessly fucking practice the same thing. Change only occurs when you work deliberately with purpose toward a goal. The details are not the details. 
 

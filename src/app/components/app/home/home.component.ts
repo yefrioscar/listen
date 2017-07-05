@@ -21,14 +21,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.serviceAutho.getCurrentUser();
     this.getIdeas();
-
-
-    this.socket.connectSocket();
-    
-
-    this.socket.receiveMessages().subscribe(response => {
-      console.log(response);
-		});
   }
 
   
@@ -37,9 +29,9 @@ export class HomeComponent implements OnInit {
     this.socket.receiveMessages();
     this.serviceIdeas.getIdeas().subscribe(
         response => {
-          console.log(response);
+          console.log("S",response);
+          
           this.ideas = response;
-          this.socket.sendMessage(this.ideas[0]);
         },
         error => {
           console.log(error);

@@ -17,23 +17,36 @@ export class SocketService {
   		this.socket = io(this.BASE_URL, { 'forceNew':true });
   	}
 
-    sendMessage(idea:Idea):void{
+    sendMessage(idea: string): void {
 		  this.socket.emit('add-message', idea);
 	  }
 
 
-  receiveMessages():any{ 
-		let observable = new Observable(observer => {
-			this.socket.on('add-message-response', (data) => {
-				observer.next(data); 
-        console.log(data);
+
+
+  receiveMessages(): any {
+		const observable = new Observable(observer => {
+			this.socket.on('response', (data) => {
+				observer.next(data);
 			});
- 
+			
+		});
+		return observable;
+	}
+
+	receiveConnections(): any {
+		const observable = new Observable(observer => {
+			this.socket.on('connectUsers', (data) => {
+				observer.next(data);
+			});
+
 			return () => {
 				this.socket.disconnect();
-			}; 
-		}); 
+			};
+		});
 		return observable;
 	}
 
 }
+
+

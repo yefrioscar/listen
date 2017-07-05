@@ -36,6 +36,7 @@ import { IdeaPropsComponent } from './components/app/idea-props/idea-props.compo
 import { IdeaMainComponent } from './components/app/idea-main/idea-main.component';
 
 const appRoutes: Routes = [
+  
   {path: '', component: LandingComponent},
   {path: 'inicio', component: HomeComponent},
   {path: 'registrarse', component: SignupComponent},
@@ -69,13 +70,10 @@ const appRoutes: Routes = [
      VerifyAccountComponent,
      LimitTextPipe,
      ModaluserComponent,
-<<<<<<< HEAD
      IdeaHeadComponent,
      IdeaPropsComponent,
-     IdeaMainComponent
-=======
+     IdeaMainComponent,
      NotFoundComponent
->>>>>>> a0ad1a54b32c7560c5e58c7851345d66d5b749e0
   ],
   imports: [
     BrowserModule,
