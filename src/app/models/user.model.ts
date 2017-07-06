@@ -1,10 +1,8 @@
 export interface User {
-	foto: string;
-    dni: number;
-	terms:  boolean;
-	email: string;
-	password: string;
-	lastname: string;
-	name: string;
-	fecNac: Date;
+apellido: string;
+correo: string;
+fecha_nacimiento: string;
+foto: string;
+nombre: string;
+username: string;
 }

@@ -6,6 +6,7 @@ import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 import { Router, NavigationExtras } from '@angular/router';
 import { Idea } from '../../../models/idea.model';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-home',
@@ -19,10 +20,20 @@ export class HomeComponent implements OnInit {
               private router: Router,
               private socket: SocketService ) { }
 
+  user: User;
+
   ngOnInit() {
 
 
-    this.serviceAutho.getCurrentUser();
+
+    this.serviceAutho.getCurrentUser().subscribe(
+      response => {
+        this.user = response;
+      },
+      error => {
+
+      }
+    )
 
 
     this.getIdeas();

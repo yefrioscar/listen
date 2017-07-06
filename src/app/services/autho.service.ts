@@ -48,19 +48,11 @@ export class AuthoService {
         const token = localStorage.getItem('token');
         const headers = new Headers({ 'Authorization': token});
         const options = new RequestOptions({ headers: headers });
-        console.log("fsfsfasf");
         console.log(token);
 
-
         return this.http
-            .post(`${this.urlAPI}/obtenerUsuarioxToken`,{
-                'sfsf':'sfsf'
-            }, options)
-            .map(response => {
-                console.log(response);
-                this.res = this.extractData(response);
-                return this.res;
-            })
+            .post(`${this.urlAPI}/obtenerUsuarioxToken`, {}, options)
+            .map(response => this.extractData1(response))
             .catch(error => this.handleError(error));
 /*
          const token = localStorage.getItem('token');
@@ -70,7 +62,16 @@ export class AuthoService {
          } else {
              this.router.navigate(['inicio']);
          }
-*/  
+*/
+  }
+   private extractData1(res: Response) {
+    const body = res.json();
+    console.log('body', body);
+    if (body.status === 200) {
+      return body.data;
+    } else {
+      return body.data;
+    }
   }
 
     resetpassword(email: string) {

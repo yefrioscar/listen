@@ -154,7 +154,7 @@ $img-border: 3px;
     
     border: $img-border solid red;
     // border-style: double;
-    overflow: hidden;
+
     animation: img-animation 4s infinite;
     &:first-child{
       border: none;

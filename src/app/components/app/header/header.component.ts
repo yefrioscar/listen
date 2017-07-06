@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { IdeasService } from '../../../services/ideas.service';
+import { User } from '../../../models/user.model';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html'
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
   active = '';
   visible = false;
 
-
+  @Input()  user: User;
   showNoti = false;
   activeNoti = '';
   visibleNoti = false;

@@ -54,6 +54,16 @@ export class IdeasService {
       .catch(error  => Observable.throw(error.json().data) );
   }
 
+  search(id: string) {
+    const token = localStorage.getItem('token');
+    const headers = new Headers({ 'Authorization': token});
+    const options = new RequestOptions({ headers: headers });
+    return this.http
+      .post(`${this.urlAPI}/obtenerIdea/${id}`, {}, options)
+      .map(response => this.extractData(response))
+      .catch(error => this.handleError(error));
+  }
+
 
   getIdea() {
     const token = localStorage.getItem('token');
