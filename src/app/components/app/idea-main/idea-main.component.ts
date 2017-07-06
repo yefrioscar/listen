@@ -52,7 +52,7 @@ export class IdeaMainComponent implements OnInit {
 
     this.socket.receiveTitle().subscribe(response => {
       s.innerHTML = response;
-      console.log(response);
+      // console.log(response);
     });
 }
 
@@ -62,17 +62,17 @@ export class IdeaMainComponent implements OnInit {
     
     this.socket.receiveMessages().subscribe(response => {
       this.exposicion = response;
-      console.log(response);
+      // console.log(response);
     });
   }
 
   onKeyEfecto(){
     
     this.socket.sendMessage1(this.efecto);
-    console.log("hola",this.efecto);
+    // console.log("hola",this.efecto);
     this.socket.receiveMessages1().subscribe(response => {
       this.efecto = response;
-      console.log(response);
+      // console.log(response);
     });
   }
 
@@ -84,7 +84,7 @@ export class IdeaMainComponent implements OnInit {
       // this.efecto = response;
       // this.beneficio = response;
       // this.formulalegal = response;
-      console.log(response);
+      // console.log(response);
     });
   }
 
@@ -93,7 +93,7 @@ export class IdeaMainComponent implements OnInit {
 
     this.socket.receiveMessages3().subscribe(response => {
       this.formulalegal = response;
-      console.log(response);
+      // console.log(response);
     });
   }
 
