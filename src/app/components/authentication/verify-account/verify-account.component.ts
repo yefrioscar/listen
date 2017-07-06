@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router,NavigationEnd  } from '@angular/router';
+import { ActivatedRoute, Router,NavigationExtras, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
 import { AuthoService } from '../../../services/autho.service';
 import { AbstractControl, FormArray, FormControl, FormBuilder, FormGroup, Validators, NG_VALIDATORS } from '@angular/forms';
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import 'rxjs/add/operator/pairwise';
 
 @Component({
@@ -17,7 +18,8 @@ export class VerifyAccountComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
               private router: Router,
-              private service: AuthoService) {
+              private service: AuthoService,
+              private SlimLoadingBarService: SlimLoadingBarService) {
                }
 
 
@@ -41,6 +43,11 @@ export class VerifyAccountComponent implements OnInit {
 
   ngOnInit() {
 
+    this.router.events.subscribe((event: any): void =>{
+          this.navigationInterceptor(event);
+        });
+
+
     this.confirmForm = this.fb.group({
       confirm: '',
     });
@@ -51,6 +58,31 @@ export class VerifyAccountComponent implements OnInit {
       }
       this.email = params['email'];
     });
+  }
+
+  startLoading(){
+    this.SlimLoadingBarService.start(() => {
+      console.log('Loading complete')
+    });
+  }
+
+  finishLoading(){
+    this.SlimLoadingBarService.complete();
+  }
+
+  navigationInterceptor(event): void{
+    if(event instanceof NavigationStart){
+      this.startLoading();
+    }
+    if(event instanceof NavigationEnd){
+      this.finishLoading();
+    }
+    if(event instanceof NavigationCancel){
+      this.finishLoading();
+    }
+    if(event instanceof NavigationError){
+      this.finishLoading();
+    }
   }
 
 }

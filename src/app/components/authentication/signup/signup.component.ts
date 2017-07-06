@@ -1,7 +1,7 @@
 import { Component, Directive, OnInit } from '@angular/core';
 import { AuthoService } from '../../../services/autho.service';
 import { User } from '../../../models/user.model';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationExtras, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
 import { AbstractControl, FormArray, FormControl, FormBuilder, FormGroup, Validators, NG_VALIDATORS } from '@angular/forms';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
@@ -21,17 +21,22 @@ export class SignupComponent implements OnInit {
     private SlimLoadingBarService: SlimLoadingBarService
   ) {
 
-    router.events
-        .filter(event => event instanceof NavigationEnd)
-        .subscribe(e => {
-            this.previousUrl = e['url'];
-            console.log(this.previousUrl);
-            console.log(e.toString());
-        });
+    // router.events
+    //     .filter(event => event instanceof NavigationEnd)
+    //     .subscribe(e => {
+    //         this.previousUrl = e['url'];
+    //         console.log(this.previousUrl);
+    //         console.log(e.toString());
+    //     });
 
   }
 
   ngOnInit() {
+
+    this.router.events.subscribe((event: any): void =>{
+          this.navigationInterceptor(event);
+        });
+
     const token = localStorage.getItem('token');
     if(true) {
       
@@ -48,6 +53,8 @@ export class SignupComponent implements OnInit {
     terms: ['', [Validators.required]],
   });
  }
+
+ 
 
 
 
@@ -78,23 +85,30 @@ export class SignupComponent implements OnInit {
 
   }
  }
-/*
-setInterval(() => {
-            this.router.navigate(['/verify-account', email]);
-      }, 2500);
-*/
-    startLoading() {
-        this.SlimLoadingBarService.start(() => {
-            console.log("sdsd");
-        });
-    }
 
-    completeProgress() {
-        this.SlimLoadingBarService.complete();
-    }
+startLoading(){
+    this.SlimLoadingBarService.start(() => {
+      console.log('Loading complete')
+    });
+  }
 
-    resetProgress() {
-        this.SlimLoadingBarService.reset();
+  finishLoading(){
+    this.SlimLoadingBarService.complete();
+  }
+
+  navigationInterceptor(event): void{
+    if(event instanceof NavigationStart){
+      this.startLoading();
     }
+    if(event instanceof NavigationEnd){
+      this.finishLoading();
+    }
+    if(event instanceof NavigationCancel){
+      this.finishLoading();
+    }
+    if(event instanceof NavigationError){
+      this.finishLoading();
+    }
+  }
 
 }

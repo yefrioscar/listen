@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthoService } from '../../../services/autho.service';
 import { IdeasService } from '../../../services/ideas.service';
 import { SocketService } from '../../../services/socket.service';
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 import { Router, NavigationExtras } from '@angular/router';
 import { Idea } from '../../../models/idea.model';
