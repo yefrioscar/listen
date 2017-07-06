@@ -51,11 +51,10 @@ export class IdeaItemComponent implements OnInit {
 
   toogleLike() {
 
-    if(this.like == false) {
-      this.like = !this.like;
+    this.like = !this.like;
     ++this.idea.likes;
-    }
     if(!this.like) {
+      --this.idea.likes;
       --this.idea.likes;
     }
 
@@ -69,7 +68,7 @@ export class IdeaItemComponent implements OnInit {
   }
 
   follow() {
-    this.serviceIdeas.followUser(this.email).subscribe(
+    this.serviceIdeas.followUser(this.idea.creador.correo).subscribe(
       response => {
         
       },

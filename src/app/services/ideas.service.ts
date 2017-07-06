@@ -75,11 +75,11 @@ export class IdeasService {
     const token = localStorage.getItem('token');
     const headers = new Headers({ 'Authorization': token});
     const options = new RequestOptions({ headers: headers });
-
+    console.log(email);
     return this.http
       .post(`${this.urlAPI}/seguirPersona`, {
               'usuarioAseguir': email
-            })
+            }, options)
       .map(response => this.extractData(response))
       .catch(error => this.handleError(error));
   }

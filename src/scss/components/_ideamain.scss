@@ -111,21 +111,30 @@
       padding-bottom: 1em;
     }
     &-item{
-      
+
     }
+
     &-title{
       color: map-get($colors, second-color-3);
       font-size: 20px;
       font-weight: $light;
     }
     &-peoples{
-
+      display: flex;  
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 }
 
 .peoples-item{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    width:40px;
+    height:40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
     &:last-child{
       margin-bottom: 0;
     }
@@ -140,13 +149,25 @@
 .add-user{
   transition: all .25s ease-in-out;
   transform: scale(1);
-
+  width: 100%;
+  height:100%;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &_img {
     width:25px;
     height:25px;
   }
-  &:hover{
+  &:hover {
+    background-color: transparent;
     cursor:pointer;
+  }
+
+
+  &.hideBackground {
+    background-color: transparent;
   }
 }
 
@@ -154,9 +175,7 @@
   transition: all .25s ease-in-out;
   transform: scale(1);
 
-  &:active {
-    transform: scale(1.2);
-  }
+
   &:hover {
     transform: scale(1.05);
   }
@@ -183,11 +202,11 @@
   cursor:default;
   position: absolute;
   background-color: white;
-  right:110px;
+  right:80px;
   width: 350px;
   top: -10px;
   border-radius:5px;
-  box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.07);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.07);
   &-search {
     width: 100%;
     padding: 10px;
@@ -226,6 +245,8 @@
 
 
 .addUser {
+
+  
 
 
   &-list__item {

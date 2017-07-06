@@ -8,15 +8,21 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class SocketService {
 
-  private BASE_URL = 'http://174.138.49.237:3000';
-  private socket;
+ // private BASE_URL = 'http://174.138.49.237:3000';
+ 	private BASE_URL = 'http://localhost:3000';
+  	private socket;
+
 
 
   constructor() { }
 
-  connectSocket(){
+  	connectSocket(){
   		this.socket = io(this.BASE_URL, { 'forceNew': true });
   	}
+	addUsers(){
+		const token = localStorage.getItem('token');
+		this.socket.emit('addUser', token);
+	}
 
     sendMessage(idea: string): void {
 		  this.socket.emit('add-message', idea);
@@ -38,7 +44,15 @@ export class SocketService {
 		  this.socket.emit('add-message3', idea);
 	  }
 
-
+	  userJoin(): any {
+		const observable = new Observable(observer => {
+			this.socket.on('userJoin', (data) => {
+				observer.next(data);
+			});
+			
+		});
+		return observable;
+		}
 
 
 

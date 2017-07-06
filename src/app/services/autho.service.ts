@@ -42,18 +42,23 @@ export class AuthoService {
             .catch(error => this.handleError(error));
     }
 
+    
+
     getCurrentUser() {
         const token = localStorage.getItem('token');
         const headers = new Headers({ 'Authorization': token});
         const options = new RequestOptions({ headers: headers });
+        console.log("fsfsfasf");
+        console.log(token);
 
 
         return this.http
-            .post(`${this.urlAPI}/obtenerUsuarioxToken`, {}, options)
+            .post(`${this.urlAPI}/obtenerUsuarioxToken`,{
+                'sfsf':'sfsf'
+            }, options)
             .map(response => {
                 console.log(response);
                 this.res = this.extractData(response);
-                localStorage.setItem('token', this.extractData(response).token );
                 return this.res;
             })
             .catch(error => this.handleError(error));

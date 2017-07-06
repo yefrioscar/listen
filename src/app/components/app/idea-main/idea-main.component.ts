@@ -9,7 +9,7 @@ export class IdeaMainComponent implements OnInit {
   showAddUser = false;
    active = '';
   visible = false;
-
+  hideBackground = '';
 
   exposicion: string;
   efecto: string;
@@ -24,19 +24,28 @@ export class IdeaMainComponent implements OnInit {
   ngOnInit() {
     this.socket.connectSocket();
 
+    this.socket.addUsers();
+/*
     this.socket.receiveConnections().subscribe(response => {
       console.log(`Hay ${response.numbers} conexiones activas`);
       // alert(`Hay ${response.numbers} conexiones activas`);
     });
+*/
 
-    
+    this.socket.userJoin().subscribe(response => {
+      console.log(response);
+      console.log(response.username);
+    });
   }
 
   showAddUserClick(){
       this.showAddUser = !this.showAddUser;
       this.visible = !this.visible;
       this.active = this.visible ? 'active' : '';
+      this.hideBackground = this.visible ? 'hideBackground' : '';
   }
+
+
 
   
 
