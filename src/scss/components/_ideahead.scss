@@ -49,7 +49,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        color: map-get($colors, second-color-5);
+        color: map-get($colors, second-color-3);
         font-size: 36px;
         outline: none;
         background-color: map-get($colors, second-color);
@@ -60,6 +60,9 @@
         display: block;
         height: 120px;
 
+        &.writeTitle {
+            color: map-get($colors, second-color-5);
+        }            
     }
 }
 

@@ -19,18 +19,17 @@ export class HomeComponent implements OnInit {
               private socket: SocketService ) { }
 
   ngOnInit() {
+
     this.serviceAutho.getCurrentUser();
+
+
     this.getIdeas();
   }
-
-  
 
   getIdeas() {
     this.socket.receiveMessages();
     this.serviceIdeas.getIdeas().subscribe(
         response => {
-          console.log("S",response);
-          
           this.ideas = response;
         },
         error => {

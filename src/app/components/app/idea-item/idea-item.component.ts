@@ -30,7 +30,6 @@ export class IdeaItemComponent implements OnInit {
   @Input()  idea: Idea;
 
   ngOnInit() {
-    console.log(this.idea);
   }
 
   toggle() {

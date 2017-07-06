@@ -6,12 +6,18 @@ import { SocketService } from '../../../services/socket.service';
   templateUrl: './idea-main.component.html'
 })
 export class IdeaMainComponent implements OnInit {
+  showAddUser = false;
+   active = '';
+  visible = false;
+
 
   exposicion: string;
   efecto: string;
   beneficio: string;
   formulalegal: string;
   title: string;
+
+  writeTitle = false;
 
   constructor(private socket: SocketService ) { }
 
@@ -24,6 +30,12 @@ export class IdeaMainComponent implements OnInit {
     });
 
     
+  }
+
+  showAddUserClick(){
+      this.showAddUser = !this.showAddUser;
+      this.visible = !this.visible;
+      this.active = this.visible ? 'active' : '';
   }
 
   
@@ -47,8 +59,9 @@ export class IdeaMainComponent implements OnInit {
 }
 
     onTitleClick(){
+      this.writeTitle = true;
       const s = document.getElementById('title');
-    this.socket.sendTitle(s.innerHTML.trim());
+      this.socket.sendTitle(s.innerHTML.trim());
 
     this.socket.receiveTitle().subscribe(response => {
       s.innerHTML = response;

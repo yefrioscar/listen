@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
@@ -43,6 +43,21 @@ export class AuthoService {
     }
 
     getCurrentUser() {
+        const token = localStorage.getItem('token');
+        const headers = new Headers({ 'Authorization': token});
+        const options = new RequestOptions({ headers: headers });
+
+
+        return this.http
+            .post(`${this.urlAPI}/obtenerUsuarioxToken`, {}, options)
+            .map(response => {
+                console.log(response);
+                this.res = this.extractData(response);
+                localStorage.setItem('token', this.extractData(response).token );
+                return this.res;
+            })
+            .catch(error => this.handleError(error));
+/*
          const token = localStorage.getItem('token');
          console.log("token",token);
          if(token == null) {
@@ -50,7 +65,8 @@ export class AuthoService {
          } else {
              this.router.navigate(['inicio']);
          }
-    }
+*/  
+  }
 
     resetpassword(email: string) {
         return this.http
