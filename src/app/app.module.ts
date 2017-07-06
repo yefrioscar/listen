@@ -44,7 +44,7 @@ const appRoutes: Routes = [
   {path: 'ingresar', component: SigninComponent},
   {path: 'verificar-cuenta/:email', component: VerifyAccountComponent},
   {path: 'reestablecer-contraseña', component: ResetPasswordComponent},
-  {path: 'idea', component: IdeaMainComponent},
+  {path: 'ideas/:id', component: IdeaMainComponent},
   {path: 'verificar-cuenta', redirectTo: '', pathMatch: 'full'},
   {path: 'reestablecer-contraseña', component: ResetPasswordComponent},
   {path: '404', component: NotFoundComponent},

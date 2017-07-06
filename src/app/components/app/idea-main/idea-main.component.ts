@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from '../../../services/socket.service';
+import { IdeasService } from '../../../services/ideas.service';
+import { ActivatedRoute, Router,NavigationExtras, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
 
 @Component({
   selector: 'idea-main',
@@ -18,10 +20,27 @@ export class IdeaMainComponent implements OnInit {
   title: string;
 
   writeTitle = false;
+  private param: any;
+  id:string;
 
-  constructor(private socket: SocketService ) { }
+  constructor(private route: ActivatedRoute,
+              private socket: SocketService,
+              private idea: IdeasService,
+              private router: Router ) { }
 
   ngOnInit() {
+    this.param = this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+    this.idea.getUserXIdea(this.id).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+
+      }
+
+    )
     this.socket.connectSocket();
 
     this.socket.addUsers();

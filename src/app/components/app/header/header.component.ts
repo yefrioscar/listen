@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { IdeasService } from '../../../services/ideas.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html'
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
   activeNoti = '';
   visibleNoti = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private serviceIdea: IdeasService) { }
 
   ngOnInit() {
   }
@@ -22,6 +24,19 @@ export class HeaderComponent implements OnInit {
   cerrarSesion() {
     localStorage.clear();
     this.router.navigate(['/ingresar']);
+  }
+
+  createIdea(){
+
+    this.serviceIdea.createIdea().subscribe(
+      response => {
+        var id = response;
+        this.router.navigate(['/ideas', id]);
+      },
+      error => {
+
+      }
+    )
   }
 
   toggle() {

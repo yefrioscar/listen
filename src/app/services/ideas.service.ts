@@ -41,15 +41,14 @@ export class IdeasService {
       .catch(error  => Observable.throw(error.json().data) );
   }
 
-  getUserXIdea() {
+  getUserXIdea(id: string) {
     const token = localStorage.getItem('token');
     const headers = new Headers({ 'Authorization': token});
     const options = new RequestOptions({ headers: headers });
 
     return this.http
-      .get(`${this.urlAPI}/contribuidoresxideas`, options)
+      .get(`${this.urlAPI}/contribuidoresIdea/${id}`, options)
       .map(response => {
-        console.log(response);
         return this.extractData(response);
       } )
       .catch(error  => Observable.throw(error.json().data) );
@@ -80,6 +79,17 @@ export class IdeasService {
       .post(`${this.urlAPI}/seguirPersona`, {
               'usuarioAseguir': email
             }, options)
+      .map(response => this.extractData(response))
+      .catch(error => this.handleError(error));
+  }
+
+  createIdea() {
+    const token = localStorage.getItem('token');
+    const headers = new Headers({ 'Authorization': token});
+    const options = new RequestOptions({ headers: headers });
+    console.log(token);
+    return this.http
+      .post(`${this.urlAPI}/idea`,{},options)
       .map(response => this.extractData(response))
       .catch(error => this.handleError(error));
   }
