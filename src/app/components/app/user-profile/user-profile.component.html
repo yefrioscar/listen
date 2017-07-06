@@ -1,0 +1,14 @@
+<div class="wrapper-main">
+  <nav-bar></nav-bar>
+  <div class="wrapper-main-gl">
+    <app-header></app-header>
+    <div class="wrapper-main-gl__app">
+      <div class="categorias_main">
+        <h2  class="categorias_main__title">Social</h2>
+        <div class="categorias_main__item">
+        <idea-item *ngFor="let idea of ideas" [idea]="idea"></idea-item>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
