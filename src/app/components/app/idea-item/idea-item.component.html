@@ -7,28 +7,29 @@
   </div>
   <div class="idea-item-1__content">
     <h3 class="idea-item-1__content--title">{{idea?.nombre}} </h3>
+
     <p class="idea-item-1__content--descripcion">{{idea?.descripcion | limitText: 65 }}<a href="#" class="box-header__cta"> Leer más</a></p>
+
     <div class="idea-item-1__content--actions">
       <div class="likes-action">
-
         <img *ngIf="!like; else elseBlock" class="likes-action__icon" (click)="toogleLike()" src="assets/like.svg" alt="">
           <ng-template #elseBlock>
             <img class="likes-action__icon" (click)="toogleLike()" src="assets/like-fill.svg" alt="">
           </ng-template>
 
 
-        <span class="likes-action__count">{{ idea?.like }}</span>
+        <span class="likes-action__count">{{ idea?.likes }}</span>
       </div>
       <div class="people-action">
         <div class="people-action__titular">
-          <img class="people-action__titular--img profileimage-idea" src="{{idea?.fotoCreador}}" alt="">
-          <span class="people-action__titular--name">{{ idea?.nombreCreador }}sds
+          <div class="people-action__titular--img profileimage-idea profileimage-idea more-users fuck">{{idea?.creador.foto}} </div>
+          <span class="people-action__titular--name">{{ idea?.creador.apellido }}
               <div class="show-titular">
 
                 <div class="show-titular__perfil">
                   <img class="profileimage-idea" src="{{idea?.fotoCreador}}" alt="">
                   <div class="show-titular__perfil--info"> 
-                    <span class="name-preview">{{ idea?.nombreCreador }}</span>
+                    <span class="name-preview">{{ idea?.creador.apellido }}</span>
                     <a class="link-preview" href="#">ver perfil</a>
                   </div>
                 </div> 

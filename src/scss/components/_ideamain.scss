@@ -1,7 +1,6 @@
 .bugxd{
   display: flex;
-  position: relative;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .idea-main{
@@ -134,5 +133,37 @@
         width:40px;
         height:40px;
         border-radius: 50%;
+        cursor: pointer;
     }
+}
+
+.add-user{
+  transition: all .25s ease-in-out;
+  transform: scale(1);
+
+  &_img {
+    width:25px;
+    height:25px;
+  }
+  &:hover{
+    cursor:pointer;
+  }
+}
+
+.add-user-svg {
+  transition: all .25s ease-in-out;
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:hover g g path {
+    fill: map-get($colors,main-color );
+  }
+  g {
+    g{
+      path{
+        fill:#bfbfbf;
+      }
+    }
+  }
 }

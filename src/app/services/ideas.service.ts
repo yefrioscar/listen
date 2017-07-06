@@ -26,6 +26,22 @@ export class IdeasService {
       .catch(error  => Observable.throw(error.json().data) );
   }
 
+  likeIdeas(idea: string){
+    const token = localStorage.getItem('token');
+    const headers = new Headers({ 'Authorization': token});
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .post(`${this.urlAPI}/darlike`, {
+        'idIdea': idea
+      }, options)
+      .map(response => {
+        console.log(response);
+        return this.extractData(response)
+      } )
+      .catch(error  => Observable.throw(error.json().data) );
+  }
+
   getUserXIdea() {
     const token = localStorage.getItem('token');
     const headers = new Headers({ 'Authorization': token});

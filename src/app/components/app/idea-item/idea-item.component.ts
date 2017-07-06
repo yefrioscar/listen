@@ -51,7 +51,22 @@ export class IdeaItemComponent implements OnInit {
   }
 
   toogleLike() {
-    this.like = !this.like;
+
+    if(this.like == false) {
+      this.like = !this.like;
+    ++this.idea.likes;
+    }
+    if(!this.like) {
+      --this.idea.likes;
+    }
+
+    this.serviceIdeas.likeIdeas(this.idea.id).subscribe(
+      response => {
+      },
+      error => {
+
+      }
+    )
   }
 
   follow() {

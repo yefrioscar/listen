@@ -5,11 +5,11 @@
                 <img src="assets/listen-blue-logo.svg" alt="Logo listen" class="head-logo__img">
             </div>
             <div class="header_main__item--user head-user">
-              <div class="icon-box">
+              <!--<div class="icon-box">
                 <div >
                   <img class="search" src="assets/search.svg" alt="">
                 </div>
-              </div>
+              </div>-->
               <div class="icon-box">
                 <div [ngClass]="activeNoti">
                   <img  *ngIf="!showNoti; else elseBlock"  (click)="toggleNoti()" class="paper_plane" src="assets/ring1.svg" alt="">

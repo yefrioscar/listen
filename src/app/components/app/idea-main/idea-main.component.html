@@ -2,14 +2,28 @@
 
 <div class="banner">
   <img src="assets/idea-photo-banner.jpg" alt="" class="banner-img">
-  <h1 class="banner-title"><span>Ley que regula el derecho a la certeza juridica de los adultos mayores</span></h1>
+  <!--<h1 class="banner-title"><input type="text" class="banner-title__input">Hola</h1>-->
+  <div (keyup)="onTitleClick()" 
+        [(ngModel)]="title"
+        id="title"
+        name="title" 
+        class="banner-title"
+        onClick="this.contentEditable='true';" ngDefaultControl>
+        Titulo
+  </div>
 </div>
+<!--<input (keyup)="onTitleClick()" 
+        [(ngModel)]="title"
+        name="title" 
+        type="text"
+        class="banner-title"
+        value="lorem ipsum dolor lorem ipsum dolorlorem ipsum dolor"/>-->
 
-
+<idea-props></idea-props>
 
 <div class="bugxd">
 
-<idea-props></idea-props>
+
 
 <main class="idea-main">
   
@@ -24,7 +38,7 @@
     
     <div class="panels">
       <div class="panels-item active">
-        <textarea (keyup)="onKey()" [(ngModel)]="exposicion" name="exposicion" 
+        <textarea (keyup)="onKeyExposicion()" [(ngModel)]="exposicion" name="exposicion" 
                   id="exposicion" 
                   class="panels-item__text">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design, because that is what it lives with. The new becomes threatening, the old reassuring.” Practice won’t get you anywhere if you mindlessly fucking practice the same thing. Change only occurs when you work deliberately with purpose toward a goal. The details are not the details. 
 
@@ -34,21 +48,21 @@ When you sit down to work, external critics aren’t the enemy. It’s you who y
 </textarea>
       </div>
       <div class="panels-item">
-        <textarea (keyup)="onKey()" [(ngModel)]="efecto" name="efecto" 
+        <textarea (keyup)="onKeyEfecto()" [(ngModel)]="efecto" name="efecto" 
                   id="efecto"
                   class="panels-item__text">Dedicate yourself to lifelong fucking learning. Practice won’t get you anywhere if you mindlessly fucking practice the same thing. Change only occurs when you work deliberately with purpose toward a goal. Sometimes it is appropriate to place various typographic elements on the outside of the fucking left margin of text to maintain a strong vertical axis. This practice is referred to as exdenting and is most often used with bullets and quotations. Can we all just agree as the greater design community to stop fucking talking about Comic Sans altogether? It’s getting fucking old. If you’re not being fucking honest with yourself how could you ever hope to communicate something meaningful to someone else? The details are not the details. They make the fucking design. Form follows fucking function.
 
 What’s important is the fucking drive to see a project through no matter what. Widows and orphans are terrible fucking tragedies, both in real life and definitely in typography. Saul Bass on failure: Failure is built into creativity… the creative act involves this element of ‘newness’ and ‘experimentalism,’ then one must expect and accept the fucking possibility of failure. Design as if your fucking life depended on it. To surpass others is fucking tough, if you only do as you are told you don’t have it in you to succeed. Think about all the fucking possibilities. To go partway is easy, but mastering anything requires hard fucking work.</textarea>
       </div>
       <div class="panels-item">
-        <textarea (keyup)="onKey()" [(ngModel)]="beneficio" name="beneficio" 
+        <textarea (keyup)="onKeyBeneficio()" [(ngModel)]="beneficio" name="beneficio" 
                   id="beneficio"
                   class="panels-item__text">This design is fucking brilliant. Must-do is a good fucking master. Why are you fucking reading all of this? Get back to work. Your rapidograph pens are fucking dried up, the x-acto blades in your bag are rusty, and your mind is dull. Stop clicking your mouse, get messy, go back to the basics and make something fucking original. Design is all about fucking relationships—the relationship of form and content, the relationship of elements, the relationship of designer and user. Form follows fucking function.
 
 When you design, you have to draw on your own fucking life experiences. If it’s not something you would want to read/look at/use then why fucking bother? This design is fucking brilliant. Dedicate yourself to lifelong fucking learning. Use your fucking hands. Can we all just agree as the greater design community to stop fucking talking about Comic Sans altogether? It’s getting fucking old. Sometimes it is appropriate to place various typographic elements on the outside of the fucking left margin of text to maintain a strong vertical axis. This practice is referred to as exdenting and is most often used with bullets and quotations.</textarea>
       </div>
       <div class="panels-item">
-        <textarea (keyup)="onKey()" [(ngModel)]="formulalegal" name="formulalegal" 
+        <textarea (keyup)="onKeyFormula()" [(ngModel)]="formulalegal" name="formulalegal" 
                   id="formulalegal"
                   class="panels-item__text">The graphic designer’s first fucking consideration is always the size and shape of the format, whether for the printed page or for digital display. Use your fucking hands. Widows and orphans are terrible fucking tragedies, both in real life and definitely in typography. If you’re not being fucking honest with yourself how could you ever hope to communicate something meaningful to someone else?
 
@@ -64,8 +78,10 @@ Make your work consistent but not fucking predictable. Saul Bass on failure: Fai
       </div>
       <div class="people-item">
         <div class="people-peoples">
-          <div class="peoples-item">
-            <img src="assets/girl1.jpg" alt="" class="peoples-item__img">
+          <div class="peoples-item ">
+            <div class="add-user">
+              <svg class="add-user-svg add-user_img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"><g><g><path d="M404.813,308.113c-1.684-1.797-3.389-3.58-5.139-5.33c-29.762-29.762-66.237-50.37-106.008-60.422 c42.048-20.964,71.004-64.411,71.004-114.5C364.669,57.358,307.311,0,236.808,0c-70.502,0-127.86,57.358-127.86,127.86 c0,50.089,28.957,93.536,71.004,114.5c-39.771,10.053-76.245,30.661-106.007,60.423c-43.502,43.502-67.46,101.341-67.46,162.864 c0,5.633,4.566,10.199,10.199,10.199h309.072C344.472,497.944,372.406,512,403.564,512c56.216,0,101.951-45.735,101.951-101.951 C505.515,354.25,460.455,308.785,404.813,308.113z M129.346,127.86c0-59.254,48.208-107.462,107.462-107.462 S344.27,68.606,344.27,127.86c0,59.254-48.208,107.463-107.462,107.463S129.346,187.116,129.346,127.86z M27.127,455.447 c5.339-111.035,97.348-199.726,209.681-199.726c54.696,0,104.568,21.034,141.968,55.429 c-44.276,11.102-77.164,51.23-77.164,98.898c0,16.302,3.852,31.72,10.686,45.4H27.127z M403.564,491.602 c-44.969,0-81.554-36.585-81.554-81.553c0-44.968,36.585-81.553,81.554-81.553c44.968,0,81.553,36.585,81.553,81.553 C485.117,455.017,448.532,491.602,403.564,491.602z"/></g></g><g><g><path d="M152.414,304.162c-2.889-4.836-9.152-6.413-13.986-3.525c-44.198,26.405-76.417,70.134-88.393,119.975 c-1.316,5.478,2.057,10.984,7.534,12.3c0.801,0.193,1.602,0.285,2.392,0.285c4.606,0,8.786-3.142,9.908-7.819 c10.703-44.538,39.505-83.622,79.021-107.23C153.724,315.259,155.303,308.997,152.414,304.162z"/></g></g><g><g><path d="M236.808,273.563c-15.038,0-30.016,1.745-44.517,5.187c-5.48,1.3-8.868,6.798-7.568,12.279 c1.113,4.689,5.296,7.846,9.915,7.846c0.78,0,1.572-0.09,2.363-0.278c12.961-3.076,26.354-4.636,39.807-4.636 c5.633,0,10.199-4.566,10.199-10.199C247.007,278.129,242.441,273.563,236.808,273.563z"/></g></g><g><g><path d="M445.608,401.697h-31.696v-31.696c0-5.633-4.567-10.199-10.199-10.199c-5.632,0-10.199,4.566-10.199,10.199v31.696 h-31.696c-5.632,0-10.199,4.566-10.199,10.199c0,5.633,4.567,10.199,10.199,10.199h31.696v31.697 c0,5.633,4.567,10.199,10.199,10.199c5.632,0,10.199-4.566,10.199-10.199v-31.697h31.696c5.632,0,10.199-4.566,10.199-10.199 C455.807,406.263,451.24,401.697,445.608,401.697z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+            </div>
           </div>
           <div class="peoples-item">
             <img src="assets/girl1.jpg" alt="" class="peoples-item__img">

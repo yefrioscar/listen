@@ -7,10 +7,11 @@ import { SocketService } from '../../../services/socket.service';
 })
 export class IdeaMainComponent implements OnInit {
 
-  exposicion:string;
-  efecto:string;
-  beneficio:string;
-  formulalegal:string;
+  exposicion: string;
+  efecto: string;
+  beneficio: string;
+  formulalegal: string;
+  title: string;
 
   constructor(private socket: SocketService ) { }
 
@@ -45,18 +46,53 @@ export class IdeaMainComponent implements OnInit {
 
 }
 
+    onTitleClick(){
+      const s = document.getElementById('title');
+    this.socket.sendTitle(s.innerHTML.trim());
 
-  onKey(){
+    this.socket.receiveTitle().subscribe(response => {
+      s.innerHTML = response;
+      console.log(response);
+    });
+}
+
+
+  onKeyExposicion(){
     this.socket.sendMessage(this.exposicion);
-    // this.socket.sendMessage(this.efecto);
-    // this.socket.sendMessage(this.beneficio);
-    // this.socket.sendMessage(this.formulalegal);
-
+    
     this.socket.receiveMessages().subscribe(response => {
       this.exposicion = response;
+      console.log(response);
+    });
+  }
+
+  onKeyEfecto(){
+    
+    this.socket.sendMessage1(this.efecto);
+    console.log("hola",this.efecto);
+    this.socket.receiveMessages1().subscribe(response => {
+      this.efecto = response;
+      console.log(response);
+    });
+  }
+
+  onKeyBeneficio(){
+    this.socket.sendMessage2(this.beneficio);
+
+    this.socket.receiveMessages2().subscribe(response => {
+      this.beneficio = response;
       // this.efecto = response;
       // this.beneficio = response;
       // this.formulalegal = response;
+      console.log(response);
+    });
+  }
+
+  onKeyFormula(){
+    this.socket.sendMessage3(this.formulalegal);
+
+    this.socket.receiveMessages3().subscribe(response => {
+      this.formulalegal = response;
       console.log(response);
     });
   }
