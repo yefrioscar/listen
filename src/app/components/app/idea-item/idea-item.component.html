@@ -22,8 +22,8 @@
       </div>
       <div class="people-action">
         <div class="people-action__titular">
-          <div class="people-action__titular--img profileimage-idea profileimage-idea more-users fuck">{{idea?.creador.foto}} </div>
-          <span class="people-action__titular--name">{{ idea?.creador.apellido }}
+          <img  src="{{idea?.creador.foto}}" alt="" class="people-action__Contributors--img  profileimage-idea">
+          <span class="people-action__titular--name">{{ idea?.creador.nombre.split(' ')[0] }} {{ idea?.creador.apellido.split(' ')[0] }}
               <div class="show-titular">
 
                 <div class="show-titular__perfil">
