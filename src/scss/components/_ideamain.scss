@@ -1,20 +1,21 @@
-.bugxd{
-  display: flex;
-  justify-content: center;
-}
-
 .idea-main{
   position: relative;
   display: flex;
   width: 80%;
-  top:-40px;
+  // top:-40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   
   
 }
 .tabs-container{
-  display:flex;
-  flex-wrap: no-wrap;
-  position:relative;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  
 }
 
 .tabs{
@@ -22,6 +23,7 @@
   flex-direction:column;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.07);
   border-radius: 5px;
+  position: relative;
 
   &-item{
     width:150px;
@@ -71,12 +73,19 @@
   &-item{
     width: 700px;
     height: 600px;
-    position:absolute;
+    position:relative;
     margin-bottom:10px;
-    left: -5000px;
+    display: none;
+    @media screen and (max-width:1400px) {
+        width: 500px;
+        
+    }
     &.active{
-      
-      left: 0;
+        display: block;
+        @media screen and (max-width:1400px) {
+        width: 500px;
+        
+    }
     }
  
     &__text{
@@ -93,6 +102,10 @@
       color: #95989A;
       outline: none;
       overflow: hidden;
+      @media screen and (max-width:1400px) {
+        width: 500px;
+        
+    }
     }
   }
 }
@@ -105,13 +118,12 @@
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.07);
     background-color: map-get($colors, second-color);
     border-radius: 5px;
-    right: -700px;
     &-content{
       padding-top: 1em;
       padding-bottom: 1em;
     }
     &-item{
-
+      
     }
 
     &-title{
@@ -127,6 +139,10 @@
     }
 }
 
+$img-width: 40px;
+$img-height: 40px;
+$img-border: 3px;
+
 .peoples-item{
     width:40px;
     height:40px;
@@ -135,15 +151,34 @@
     display: flex;
     justify-content: center;
     align-items:center;
+    
+    border: $img-border solid red;
+    // border-style: double;
+    overflow: hidden;
+    animation: img-animation 4s infinite;
+    &:first-child{
+      border: none;
+      animation: none;
+    }
     &:last-child{
       margin-bottom: 0;
     }
     &__img{
-        width:40px;
-        height:40px;
-        border-radius: 50%;
+      position: fixed;
+        width:$img-width;
+        height:$img-height;
+        animation: none;
         cursor: pointer;
+        border-radius: 50%;
     }
+}
+
+@keyframes img-animation{
+  0%{border-color: map-get($colors, main-color); transform: rotate(0deg);}
+  25%{border-color: map-get($colors, main-color-light)}
+  50%{border-color: #067BC2;transform: rotate(180deg);}
+  75%{border-color: map-get($colors, main-color-light);transform: rotate(270deg);}
+  100%{border-color: map-get($colors, main-color); transform: rotate(360deg);}
 }
 
 .add-user{
@@ -312,4 +347,4 @@
 
   }
 
-} 
+}

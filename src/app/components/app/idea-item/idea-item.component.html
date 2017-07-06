@@ -44,12 +44,9 @@
           </span>
         </div>
         <div class="people-action__Contributors">
-          <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img  profileimage-idea">
-          <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img profileimage-idea">
-          <img  src="assets/girl1.jpg" alt="" class="people-action__Contributors--img profileimage-idea">
+          <app-homecontribuidor  *ngFor="let img of idea?.contribuidores" [img]="img"></app-homecontribuidor>
           <div  class="people-action__Contributors--img profileimage-idea more-users">
-            <a (click)="show = !show" (click)="toggle()" [ngClass]="actived" class="more-users-link">{{idea?.cantContrib}}</a>
-            
+            <a (click)="show = !show" (click)="toggle()" [ngClass]="actived" class="more-users-link">{{idea?.contribuidores.length}}</a>
           </div>
         </div>
       </div>

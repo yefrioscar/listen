@@ -1,7 +1,7 @@
 export interface Idea {
 cantContrib: string,
 descripcion: string,
-fotoContribuidor: string [],
+contribuidores: string [],
 fotoCreador: string,
 id: string,
 creador: any,

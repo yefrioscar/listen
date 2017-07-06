@@ -1,10 +1,15 @@
 .props{
-    width: auto;
+    width: 200px;
     padding:10px;
     border-radius: 5px;
     position: fixed;
     left:20px;
-    background-color: #F7FFF7;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    @media screen and (max-width:1080px) {
+        display: none;
+    }
 
     &-log{
         padding: 1em;

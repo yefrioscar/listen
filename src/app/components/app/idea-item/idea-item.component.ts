@@ -29,14 +29,17 @@ export class IdeaItemComponent implements OnInit {
 
   @Input()  idea: Idea;
 
+
+
   ngOnInit() {
+    
   }
 
   toggle() {
     this.visible = !this.visible;
     this.actived = this.visible ? 'actived' : '';
   }
-
+/*
   getUserXIdea() {
     this.serviceIdeas.getUserXIdea().subscribe(
         response => {
@@ -48,7 +51,7 @@ export class IdeaItemComponent implements OnInit {
         }
       );
   }
-
+*/
   toogleLike() {
 
     this.like = !this.like;

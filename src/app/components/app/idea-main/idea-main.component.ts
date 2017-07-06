@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from '../../../services/socket.service';
 import { IdeasService } from '../../../services/ideas.service';
+import { User } from '../../../models/user.model';
 import { ActivatedRoute, Router,NavigationExtras, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
+
 
 @Component({
   selector: 'idea-main',
@@ -22,6 +24,7 @@ export class IdeaMainComponent implements OnInit {
   writeTitle = false;
   private param: any;
   id:string;
+  users:User[];
 
   constructor(private route: ActivatedRoute,
               private socket: SocketService,
@@ -34,8 +37,10 @@ export class IdeaMainComponent implements OnInit {
     });
     this.idea.getUserXIdea(this.id).subscribe(
       response => {
+        this.users = response;
         console.log(response);
       },
+      
       error => {
 
       }

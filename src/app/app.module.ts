@@ -34,6 +34,8 @@ import { SocketService } from './services/socket.service';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ModaluserComponent } from './components/app/modaluser/modaluser.component';
+import { ItemContribuidorComponent } from './components/app/item-contribuidor/item-contribuidor.component';
+import { HomecontribuidorComponent } from './components/app/homecontribuidor/homecontribuidor.component';
 
 
 const appRoutes: Routes = [
@@ -74,7 +76,9 @@ const appRoutes: Routes = [
      IdeaHeadComponent,
      IdeaPropsComponent,
      IdeaMainComponent,
-     NotFoundComponent
+     NotFoundComponent,
+     ItemContribuidorComponent,
+     HomecontribuidorComponent
   ],
   imports: [
     BrowserModule,
