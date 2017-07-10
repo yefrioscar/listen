@@ -8,7 +8,7 @@ import { Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class IdeasService {
 
-  urlAPI = '174.138.49.237:3002/api/';
+  urlAPI = 'http://174.138.49.237:3002/api/';
 
   constructor(private http: Http) { }
 
