@@ -16,6 +16,7 @@ export class SigninComponent implements OnInit {
               private SlimLoadingBarService: SlimLoadingBarService) { }
 
   ngOnInit() {
+        alert("Ejemplo");
         this.service.getCurrentUser();
         this.router.events.subscribe((event: any): void =>{
           this.navigationInterceptor(event);
