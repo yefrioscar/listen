@@ -8,8 +8,8 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class SocketService {
 
- // private BASE_URL = 'http://174.138.49.237:3000';
- 	private BASE_URL = 'http://localhost:3000';
+  private BASE_URL = 'http://174.138.49.237:3000';
+ //	private BASE_URL = 'http://localhost:3000';
   	private socket;
 
 

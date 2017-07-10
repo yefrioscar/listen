@@ -8,7 +8,7 @@ import { Router, NavigationExtras } from '@angular/router';
 @Injectable()
 export class AuthoService {
 
-  urlAPI = 'http://localhost:3002/api';
+  urlAPI = '174.138.49.237:3002/api/';
   res: Response;
 
     constructor(private http: Http, private router: Router){}
