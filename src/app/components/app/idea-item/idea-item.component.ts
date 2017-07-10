@@ -30,28 +30,29 @@ export class IdeaItemComponent implements OnInit {
   @Input()  idea: Idea;
 
 
-
   ngOnInit() {
-    
+  
+
   }
 
   toggle() {
+
+
+    // Obtener todos los usuarios de la idea
+    this.serviceIdeas.getUserXIdea(this.idea.id).subscribe(
+      response => {
+        this.UsuariosPorIdea = response;
+        console.log(response);
+      },
+      error => {
+
+      }
+    )
+
     this.visible = !this.visible;
     this.actived = this.visible ? 'actived' : '';
   }
-/*
-  getUserXIdea() {
-    this.serviceIdeas.getUserXIdea().subscribe(
-        response => {
-          console.log(response);
-          this.UsuariosPorIdea = response;
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
-*/
+
   toogleLike() {
 
     this.like = !this.like;

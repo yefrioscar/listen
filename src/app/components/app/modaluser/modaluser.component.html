@@ -1,9 +1,6 @@
-<div class="background-modal">
-  <div class="allusers">
     <div class="allusers-item">
-      <img class="profileimage-idea" src="assets/girl1.jpg" alt="">
-      <span>{{ UsuariosPorIdea?.name }}  {{UsuariosPorIdea?.lastname }}</span>
+      <img class="profileimage-idea" src="{{ user?.foto }}" alt="">
+      <span>{{ user?.nombre.split(' ')[0] }}  {{user?.apellido.split(' ')[0] }}</span>
       <a class="link-preview" href="#">ver perfil</a>
     </div>
-  </div>
-</div>
+

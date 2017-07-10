@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(private serviceAutho: AuthoService,
               private serviceIdeas: IdeasService,
               private router: Router,
-              private socket: SocketService ) { }
+              private socket: SocketService) { }
 
   user: User;
 
@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
 
     this.serviceAutho.getCurrentUser().subscribe(
       response => {
+        console.log("home", response);
         this.user = response;
       },
       error => {
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
       }
     )
 
+    
 
     this.getIdeas();
   }
@@ -50,6 +52,8 @@ export class HomeComponent implements OnInit {
         }
       );
   }
+
+  
 
 
 

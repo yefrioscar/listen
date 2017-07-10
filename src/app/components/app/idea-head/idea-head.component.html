@@ -27,16 +27,16 @@
               </div>
               <div class="icon-box">
                 <div>
-                  <img (click)="toggle()" [ngClass]="active"  class="girl" src="assets/girl.jpg" alt="">
+                  <img (click)="toggle()" [ngClass]="active"  class="girl" src="{{session?.foto}}" alt="">
                   <div *ngIf="show" class="show-options">
                     <ul class="show-options-list">
                       <li class="show-options-list__item info-user">
                         <div class="info-user__item">
-                          <img class="girl" src="assets/girl.jpg" alt="">
+                          <img class="girl" src="{{session.foto}}" alt="">
                         </div>
                         <div class="info-user__item">
-                          <div class="info-user__item-name">Yefri Laura</div>
-                          <div class="info-user__item-correo">yefrioscar9814@gmail.com</div>
+                          <div class="info-user__item-name">{{session.nombre.split(' ')[0] }} {{session.apellido.split(' ')[0]}}</div>
+                          <div class="info-user__item-correo">{{session.correo}}</div>
                         </div>
                       </li>
                       <li class="show-options-list__item">Perfil</li>

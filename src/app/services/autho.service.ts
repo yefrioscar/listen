@@ -8,7 +8,7 @@ import { Router, NavigationExtras } from '@angular/router';
 @Injectable()
 export class AuthoService {
 
-  urlAPI = 'http://174.138.49.237:3002/api';
+  urlAPI = 'http://localhost:3002/api';
   res: Response;
 
     constructor(private http: Http, private router: Router){}
@@ -52,27 +52,25 @@ export class AuthoService {
 
         return this.http
             .post(`${this.urlAPI}/obtenerUsuarioxToken`, {}, options)
-            .map(response => this.extractData1(response))
+            .map(response => {
+                const user = this.extractData(response).data;
+                localStorage.setItem('nombre', `${user.name} ${user.apellido}` );
+                localStorage.setItem('correo', user.correo );
+                localStorage.setItem('foto', user.foto );
+                localStorage.setItem('username', user.username );
+                return this.extractData1(response);
+            })
             .catch(error => this.handleError(error));
-/*
-         const token = localStorage.getItem('token');
-         console.log("token",token);
-         if(token == null) {
-            this.router.navigate(['/ingresar']);
-         } else {
-             this.router.navigate(['inicio']);
-         }
-*/
   }
    private extractData1(res: Response) {
     const body = res.json();
     console.log('body', body);
     if (body.status === 200) {
       return body.data;
-    } else {
-      return body.data;
+        } else {
+        return body.data;
+        }
     }
-  }
 
     resetpassword(email: string) {
         return this.http

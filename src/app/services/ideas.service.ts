@@ -8,7 +8,7 @@ import { Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class IdeasService {
 
-  urlAPI = 'http://174.138.49.237:3002/api';
+  urlAPI = 'http://localhost:3002/api';
 
   constructor(private http: Http) { }
 
@@ -21,6 +21,20 @@ export class IdeasService {
       .get(`${this.urlAPI}/idea`, options)
       .map(response => {
         return this.extractData(response)
+      } )
+      .catch(error  => Observable.throw(error.json().data) );
+  }
+
+  getContentIdea(id: string){
+    const token = localStorage.getItem('token');
+    const headers = new Headers({ 'Authorization': token});
+    const options = new RequestOptions({ headers: headers });
+
+
+    return this.http
+      .get(`${this.urlAPI}/obtenerIdea/${id}`, options)
+      .map(response => {
+        return this.extractData(response);
       } )
       .catch(error  => Observable.throw(error.json().data) );
   }
@@ -53,6 +67,7 @@ export class IdeasService {
       } )
       .catch(error  => Observable.throw(error.json().data) );
   }
+
 
   search(id: string) {
     const token = localStorage.getItem('token');

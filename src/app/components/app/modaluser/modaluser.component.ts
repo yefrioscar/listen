@@ -9,12 +9,12 @@ import { User } from '../../../models/user.model';
 })
 export class ModaluserComponent implements OnInit {
 
-  @Input()  UsuariosPorIdea: User;
+  @Input()  user: User[];
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.UsuariosPorIdea);
+    console.log(this.user);
   }
 
 

@@ -1,7 +1,7 @@
 .show-titular {
     display: none;
     width: 150px;
-    height:150px;
+    height:125px;
     background-color: white;
     position: absolute;
     padding: 15px;
@@ -22,12 +22,14 @@
             align-items: center;
 
             .name-preview {
+                text-align: center;
                 font-size: 15px;
             }
 
             .link-preview {
                 color: map-get($colors, main-color);
                 text-decoration: none;
+                text-align: center;
             }
 
         }

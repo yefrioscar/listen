@@ -1,5 +1,8 @@
-<modaluser *ngIf="show" (click)="show = false" [UsuariosPorIdea]="UsuariosPorIdea"></modaluser>
-
+<div *ngIf="show" (click)="show = false" class="background-modal">
+  <div class="allusers">
+    <modaluser *ngFor="let user of UsuariosPorIdea"  [user]="user"></modaluser>
+  </div>
+</div>
 
 <div class="idea-item-1">
   <div class="idea-item-1__img">
@@ -8,7 +11,7 @@
   <div class="idea-item-1__content">
     <h3 class="idea-item-1__content--title">{{idea?.nombre}} </h3>
 
-    <p class="idea-item-1__content--descripcion">{{idea?.descripcion | limitText: 65 }}<a href="#" class="box-header__cta"> Leer más</a></p>
+    <p class="idea-item-1__content--descripcion">{{idea?.descripcion | limitText: 65 }}<a  [routerLink]="['/ideas', idea?.id]" class="box-header__cta"> Leer más</a></p>
 
     <div class="idea-item-1__content--actions">
       <div class="likes-action">
@@ -27,7 +30,7 @@
               <div class="show-titular">
 
                 <div class="show-titular__perfil">
-                  <img class="profileimage-idea" src="{{idea?.fotoCreador}}" alt="">
+                  <img class="profileimage-idea" src="{{idea?.creador.foto}}" alt="">
                   <div class="show-titular__perfil--info"> 
                     <span class="name-preview">{{ idea?.creador.apellido }}</span>
                     <a class="link-preview" (click)="followUser()">ver perfil</a>
@@ -35,8 +38,8 @@
                 </div> 
 
                 <div class="show-itular__content">
-                  <span class="show-titular__content--item"><span class="show-titular__content--item-number">20k</span> seguidores</span>
-                  <span class="show-titular__content--item"><span class="show-titular__content--item-number">800</span> seguidos</span>
+               <!--   <span class="show-titular__content--item"><span class="show-titular__content--item-number">20k</span> seguidores</span>
+                  <span class="show-titular__content--item"><span class="show-titular__content--item-number">800</span> seguidos</span>-->
                   <button [ngClass]="actived" class="button-follow" (click)="follow()">{{idea?.sigueAlCreador ? 'siguiendo': 'seguir'}}</button>
                 </div>
 
@@ -44,7 +47,7 @@
           </span>
         </div>
         <div class="people-action__Contributors">
-          <app-homecontribuidor  *ngFor="let img of idea?.contribuidores" [img]="img"></app-homecontribuidor>
+          <app-homecontribuidor  *ngFor="let img of idea?.contribuidores | limitContribuidores" [img]="img"></app-homecontribuidor>
           <div  class="people-action__Contributors--img profileimage-idea more-users">
             <a (click)="show = !show" (click)="toggle()" [ngClass]="actived" class="more-users-link">{{idea?.contribuidores.length}}</a>
           </div>

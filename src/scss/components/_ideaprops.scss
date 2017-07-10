@@ -1,12 +1,14 @@
 .props{
-    width: 200px;
+    height:100px;
+    width: auto;
     padding:10px;
-    border-radius: 5px;
+    border-radius: 3px;
     position: fixed;
     left:20px;
     top: 50%;
     transform: translateY(-50%);
     display: block;
+    background-color: #F7FFF7;
     @media screen and (max-width:1080px) {
         display: none;
     }

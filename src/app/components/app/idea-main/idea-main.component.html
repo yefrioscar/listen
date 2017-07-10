@@ -1,4 +1,4 @@
-<idea-head></idea-head>
+<idea-head [session]="session"></idea-head>
 
 <div class="banner">
 
@@ -10,7 +10,6 @@
         name="title"
         class="banner-title"
         onClick="this.contentEditable='true';" ngDefaultControl>
-        ¿En que estas pensando?
   </div>
 </div>
 <!--<input (keyup)="onTitleClick()" 
@@ -20,7 +19,24 @@
         class="banner-title"
         value="lorem ipsum dolor lorem ipsum dolorlorem ipsum dolor"/>-->
 
-<idea-props></idea-props>
+  <div class="props">
+        <div class="props-log__item">
+          <div class="props-log__item-likes">
+            <img *ngIf="!like; else elseBlock" class="props-log__item-likes--icon" (click)="toogleLike()" src="assets/like.svg" alt="">
+              <ng-template #elseBlock>
+              <img class="props-log__item-likes--icon" (click)="toogleLike()" src="assets/like-fill.svg" alt="">
+            </ng-template>
+            <span class="props-log__item-likes--cta" id="pendejo"></span>
+          </div>
+        </div>
+        <div class="props-log__item">
+          <div class="props-log__item-likes">
+            <img src="assets/line-chart.svg" alt="" class="props-log__item-likes--icon">
+            <span class="props-log__item-likes--cta">0</span>
+          </div>
+        </div>
+  </div>
+
 
 <main class="idea-main">
   

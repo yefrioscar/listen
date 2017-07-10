@@ -26,6 +26,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 /* pipes */
 import { LimitTextPipe } from './pipes/limit-text.pipe';
+import { LimitContribuidoresPipe } from './pipes/limit-contribuidores.pipe';
 
 /* services */
 import { AuthoService } from './services/autho.service';
@@ -78,7 +79,8 @@ const appRoutes: Routes = [
      IdeaMainComponent,
      NotFoundComponent,
      ItemContribuidorComponent,
-     HomecontribuidorComponent
+     HomecontribuidorComponent,
+     LimitContribuidoresPipe
   ],
   imports: [
     BrowserModule,

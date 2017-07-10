@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-
+import { User } from '../../../models/user.model';
 @Component({
   selector: 'idea-head',
   templateUrl: './idea-head.component.html'
@@ -16,9 +16,14 @@ export class IdeaHeadComponent implements OnInit {
   activeNoti = '';
   visibleNoti = false;
 
+  @Input() session: User;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
+
+    
+
   }
 
   cerrarSesion() {
