@@ -20,7 +20,8 @@ export class IdeasService {
     return this.http
       .get(`${this.urlAPI}/idea`, options)
       .map(response => {
-        return this.extractData(response)
+        console.log(response);
+        return this.extractData(response);
       } )
       .catch(error  => Observable.throw(error.json().data) );
   }
