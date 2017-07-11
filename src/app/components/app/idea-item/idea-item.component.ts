@@ -23,7 +23,7 @@ export class IdeaItemComponent implements OnInit {
   visibleNoti = false;
   email: string;
 
-  UsuariosPorIdea: User[] = [];
+  UsuariosPorIdea: User;
 
   constructor(private serviceIdeas: IdeasService){}
 

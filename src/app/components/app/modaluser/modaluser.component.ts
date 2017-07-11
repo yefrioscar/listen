@@ -9,7 +9,7 @@ import { User } from '../../../models/user.model';
 })
 export class ModaluserComponent implements OnInit {
 
-  @Input()  user: User[];
+  @Input()  user: User;
 
   constructor() { }
 
